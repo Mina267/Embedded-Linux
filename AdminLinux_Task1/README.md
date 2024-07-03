@@ -26,7 +26,7 @@
     prompts the user for whether to proceed with the entire operation.
     If the response is not affirmative, the entire command is aborted.
     
-### a- rmdir
+### b- rmdir
     Remove the DIRECTORY(ies), if they are empty.
     -- ignore-fail-on-non-empty
         ignore each failure that is solely because a directory
