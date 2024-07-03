@@ -96,7 +96,7 @@ ls /usr/bin/c* | head -n 2
 man -k read | grep file
 ```
 <p align="center">
-	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/4ccec3a2-6af7-4e5b-903f-229d4139262" width=40% height=40% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/24452a7f-a670-4f82-b827-b8359f3c36bb" width=40% height=40% />
 </p>
 
 ## 12. What is the usage of apropos command?
