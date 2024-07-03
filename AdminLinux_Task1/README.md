@@ -52,8 +52,8 @@
 </p>
 
 #### What Did You Notice?
-##### The rmdir command will fail with an error message because dir11 is not empty. The rmdir command only removes empty directories.
-##### To remove a directory and all its contents, you can use the rm -r command instead of rmdir.
+	##### The rmdir command will fail with an error message because dir11 is not empty. The rmdir command only removes empty directories.
+	##### To remove a directory and all its contents, you can use the rm -r command instead of rmdir.
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0c3e9f39-b4c7-4c2d-b15e-d0f3aabae252" width=40% height=40% />
 </p>
@@ -64,8 +64,8 @@
 </p>
 
 #### What Happened to the Hierarchy?
-##### The rmdir -p command is used to remove a directory and its parent directories if they become empty. However, rmdir -p can only remove empty directories. Since OldFiles is a file, not an empty directory, the rmdir -p command will fail.
-##### To remove the file OldFiles and then the empty Documents directory, you would need to first delete the file and then remove the directory.
+	##### The rmdir -p command is used to remove a directory and its parent directories if they become empty. However, rmdir -p can only remove empty directories. Since OldFiles is a file, not an empty directory, the rmdir -p command will fail.
+	##### To remove the file OldFiles and then the empty Documents directory, you would need to first delete the file and then remove the directory.
 
 
 
