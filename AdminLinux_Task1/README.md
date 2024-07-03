@@ -144,8 +144,8 @@ The apropos command in Unix-like operating systems is used to search the manual 
 ```shell
 apropos [keyword]
 ``` 
-#### Practical Use
-The apropos command is particularly useful when you remember part of a command's functionality but not the exact command name. It helps you quickly locate relevant man pages without needing to know the exact names.
+#### Use
+The apropos command is useful when you remember part of a command's functionality but not the exact command name. It helps you quickly locate relevant man pages without needing to know the exact names.
 
 # Last Exercice
 
