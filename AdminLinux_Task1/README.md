@@ -41,11 +41,23 @@
     -- version
         output version information and exit
 ```
-
+## 4. Create the following hierarchy under your home directory:
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/88e5b617-e1b6-4544-89a7-2597d186d621" width=40% height=40% />
 </p>
-    
+
+### a. Remove dir11 with rmdir in one-step. What did you notice? And how did you  overcome that? 
+<p align="center">
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/8cce9df0-b3ad-4621-9b15-dee6311d2e08" width=40% height=40% />
+</p>
+### b. Then remove OldFiles using rmdir –p command. State what happened to the  hierarchy (Note: you are in your home directory). 
+<p align="center">
+	<img src="" width=40% height=40% />
+</p>
+### c. The output of the command pwd was /home/user. Write the absolute and relative path for the file mycv.
+<p align="center">
+	<img src="" width=40% height=40% />
+</p>
 ## 5. Copy the /etc/passwd file to your home directory making its name is mypasswd
     
 ```shell
