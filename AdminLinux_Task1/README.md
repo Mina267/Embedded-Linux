@@ -42,6 +42,9 @@
         output version information and exit
 ```
 
+<p align="center">
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/88e5b617-e1b6-4544-89a7-2597d186d621" width=40% height=40% />
+</p>
     
 ## 5. Copy the /etc/passwd file to your home directory making its name is mypasswd
     
