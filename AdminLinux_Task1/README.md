@@ -78,8 +78,14 @@ ls /usr/bin/w*
 </p>
 
 ## 9. What command type are used for? (from the slide)
+ ###Command type
+ ###`• type`
+ Display information about command typ
+
 ## 10. Show 2 types of command file in /usr/bin that start with letter c
+
 ## 11. Using man command find the command to read file. (Note: man take option)
+
 ## 12. What is the usage of apropos command?
     
     
