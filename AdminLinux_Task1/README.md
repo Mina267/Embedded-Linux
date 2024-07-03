@@ -146,3 +146,27 @@ apropos [keyword]
 ``` 
 #### Practical Use
 The apropos command is particularly useful when you remember part of a command's functionality but not the exact command name. It helps you quickly locate relevant man pages without needing to know the exact names.
+
+# Last Exercice
+
+```bash
+git clone https://github.com/Mina267/Embedded-Linux.git
+
+cd Embedded-Linux
+
+git checkout -b Task1_adminLinux main
+
+mkdir AdminLinx_Task1
+
+echo '#!/bin/bash' > AdminLinux_Task1/script.sh
+
+git add AdminLinux_Task1/script.sh
+
+git commit -m "Add empty script to AdminLinux_Task1"
+
+git checkout main
+
+git merge Task1_adminLinux
+
+git push origin main
+``` 
