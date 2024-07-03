@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Write a bash script to :
 
 # 1. Create a directory called "myDirectory" in your home folder.
 mkdir ~/myDirectory
