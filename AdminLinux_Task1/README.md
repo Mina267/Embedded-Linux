@@ -98,7 +98,9 @@ man -k read | grep file
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/4ccec3a2-6af7-4e5b-903f-229d4139262" width=40% height=40% />
 </p>
+
 ## 12. What is the usage of apropos command?
+
 The apropos command in Unix-like operating systems is used to search the manual page names and descriptions for a keyword or regular expression. It helps users find commands and topics related to a specific keyword by looking through the man page descriptions.
 ### Usage
  #### The basic syntax for apropos is:
