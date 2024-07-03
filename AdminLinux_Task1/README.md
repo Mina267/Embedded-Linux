@@ -1,18 +1,22 @@
 # Question 1
 
 ## 1. List three Linux Distributions
-    1- Linux Mint
-    2- Ubuntu
-    3- Debian
-    4- Red Hat‎
-    5- Fedora‎
-    
+	1- fedora
+	2- Red Hat
+	3- Solus 
+	4- ZORIN 
+	5- Linux Mint
+	6- debian 
+	7- archlinux 	
+	8- BlackArch 
+	9- Kubuntu 
+	10- CentOS 
+	11- Manjaro
 ## 2. From the slides what is the man command used for?
-    1- Linux Mint
-    2- Ubuntu
-    3- Debian
-    4- Red Hat‎
-    5- Fedora‎
+### man command
+ System-wide documentation system that provides short reference manuals (pages) for individual
+ commands,API functions, concepts, configuration file syntax, file formats and is organized in sections
+ (1 for user commands, 2 for system calls...). That's the traditional Unix documentation system    
 
 ## 3. What is the difference between rm and rmdir using man command?
 ### a- rm
@@ -46,22 +50,25 @@ cp /etc/passwd ~/mypasswd
 </p>
 
 ## 6. Rename this new file to be oldpasswd 
-    mv ~/mypasswd ~/oldpasswd
+```shell
+mv ~/mypasswd ~/oldpasswd
+```
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/66fe9e76-1588-46d7-9050-22f5ef575466" width=40% height=40% />
 </p>
 
 ## 7. You are in /usr/bin, list four ways to go to your home directory 
-	cd ~
-	cd /home/user
-	cd $HOME
-	cd
-
+```shell
+cd ~
+cd /home/user
+cd $HOME
+cd
+```
 
 
 ## 8. List Linux commands in /usr/bin that start with letter w
-```	
- ls /usr/bin/w*
+```shell	
+ls /usr/bin/w*
 ```
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0da028e9-54eb-40cf-a1e7-115b460ca2bb" width=40% height=40% />
