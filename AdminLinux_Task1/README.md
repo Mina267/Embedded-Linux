@@ -87,7 +87,7 @@ ls /usr/bin/c*
 ls /usr/bin/c* | head -n 2
 ```
 <p align="center">
-	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/93e89644-5cd0-45aa-b705-0e87a3130ad" width=40% height=40% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/df05d3a5-bb2e-4e4c-ae9f-22a2c53ecff3" width=40% height=40% />
 </p>
 
 
