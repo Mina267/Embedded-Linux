@@ -37,8 +37,10 @@
 
     
 ## 5. Copy the /etc/passwd file to your home directory making its name is mypasswd
-    cp /etc/passwd ~/mypasswd
-
+    
+```shell
+cp /etc/passwd ~/mypasswd
+```
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/52019423-d954-4780-8a81-9948b1317764" width=40% height=40% />
 </p>
