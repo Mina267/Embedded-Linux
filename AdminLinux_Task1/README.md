@@ -60,10 +60,12 @@
 
 ### b. Then remove OldFiles using rmdir –p command. State what happened to the  hierarchy (Note: you are in your home directory). 
 <p align="center">
-	<img src="" width=40% height=40% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/662bdf03-c24a-4cdf-8d8c-0f9d03d7ec46" width=40% height=40% />
 </p>
 
-
+#### What Happened to the Hierarchy?
+##### The rmdir -p command is used to remove a directory and its parent directories if they become empty. However, rmdir -p can only remove empty directories. Since OldFiles is a file, not an empty directory, the rmdir -p command will fail.
+##### To remove the file OldFiles and then the empty Documents directory, you would need to first delete the file and then remove the directory.
 
 
 
