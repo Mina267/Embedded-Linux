@@ -174,3 +174,7 @@ git push origin main
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/b62693c9-504c-47f8-a9fb-6e4f7cda4859" width=40% height=40% />
 </p>
+
+<p align="center">
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/371beacb-39d5-482f-bc09-bf838bfac38d" width=40% height=40% />
+</p>
