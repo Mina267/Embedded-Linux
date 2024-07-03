@@ -50,14 +50,29 @@
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/8cce9df0-b3ad-4621-9b15-dee6311d2e08" width=40% height=40% />
 </p>
+
+#### What Did You Notice?
+##### The rmdir command will fail with an error message because dir11 is not empty. The rmdir command only removes empty directories.
+
+<p align="center">
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0c3e9f39-b4c7-4c2d-b15e-d0f3aabae252" width=40% height=40% />
+</p>
+
 ### b. Then remove OldFiles using rmdir –p command. State what happened to the  hierarchy (Note: you are in your home directory). 
 <p align="center">
 	<img src="" width=40% height=40% />
 </p>
+
+
+
+#### To remove a directory and all its contents, you can use the rm -r command instead of rmdir.
+
+
 ### c. The output of the command pwd was /home/user. Write the absolute and relative path for the file mycv.
 <p align="center">
 	<img src="" width=40% height=40% />
 </p>
+
 ## 5. Copy the /etc/passwd file to your home directory making its name is mypasswd
     
 ```shell
