@@ -58,8 +58,16 @@
 
 
 ## 8. List Linux commands in /usr/bin that start with letter w
+```	
+ ls /usr/bin/w*
+```
+<p align="center">
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0da028e9-54eb-40cf-a1e7-115b460ca2bb" width=40% height=40% />
+</p>
 
-
-
+## 9. What command type are used for? (from the slide)
+## 10. Show 2 types of command file in /usr/bin that start with letter c
+## 11. Using man command find the command to read file. (Note: man take option)
+## 12. What is the usage of apropos command?
     
     
