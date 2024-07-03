@@ -40,13 +40,13 @@
     cp /etc/passwd ~/mypasswd
 
 <p align="center">
-	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/52019423-d954-4780-8a81-9948b1317764" width=60% height=60% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/52019423-d954-4780-8a81-9948b1317764" width=40% height=40% />
 </p>
 
 ## 6. Rename this new file to be oldpasswd 
     mv ~/mypasswd ~/oldpasswd
 <p align="center">
-	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/66fe9e76-1588-46d7-9050-22f5ef575466" width=60% height=60% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/66fe9e76-1588-46d7-9050-22f5ef575466" width=40% height=40% />
 </p>
 ## 7. You are in /usr/bin, list four ways to go to your home directory 
 ## 8. List Linux commands in /usr/bin that start with letter w
