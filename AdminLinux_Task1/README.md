@@ -48,17 +48,12 @@
 
 ### a. Remove dir11 with rmdir in one-step. What did you notice? And how did you  overcome that? 
 <p align="center">
-	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/8cce9df0-b3ad-4621-9b15-dee6311d2e08" width=40% height=40% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/7a8a5f4d-ec9c-4da0-a2f5-23443c0de6b0" width=40% height=40% />
 </p>
 
 #### What Did You Notice?
 ##### The rmdir command will fail with an error message because dir11 is not empty. The rmdir command only removes empty directories.
-
-<p align="center">
-	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0c3e9f39-b4c7-4c2d-b15e-d0f3aabae252" width=40% height=40% />
-</p>
-
-#### To remove a directory and all its contents, you can use the rm -r command instead of rmdir.
+##### To remove a directory and all its contents, you can use the rm -r command instead of rmdir.
 <p align="center">
 	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0c3e9f39-b4c7-4c2d-b15e-d0f3aabae252" width=40% height=40% />
 </p>
