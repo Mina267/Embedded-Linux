@@ -87,8 +87,9 @@ ls /usr/bin/c*
 ls /usr/bin/c* | head -n 2
 ```
 <p align="center">
-	<img src="[https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/0da028e9-54eb-40cf-a1e7-115b460ca2bb](https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/93e89644-5cd0-45aa-b705-0e87a3130ad)" width=40% height=40% />
+	<img src="https://github.com/Mina267/GP_4M_SV2_Intake3_FOTA_18/assets/71601701/93e89644-5cd0-45aa-b705-0e87a3130ad" width=40% height=40% />
 </p>
+
 
 ## 11. Using man command find the command to read file. (Note: man take option)
 
