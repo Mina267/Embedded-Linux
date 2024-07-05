@@ -84,27 +84,27 @@ target: prerequisites
 
 ### substitute variable 
 ```makefile
-  echo $(files)
+echo $(files)
 ```
 ### Disaple Echo 
 ``` makefile
-  Using @ ex :   @echo "hello"
+Using @ ex :   @echo "hello"
 ```
 ### Access Enviroment Variable
 ```makefile
-  it is accessible ex :   echo $(PATH)
+it is accessible ex :   echo $(PATH)
 ```
   
 ### Access shell commands
 ```makefile
-  clean:			  
-    @rm *.o
-	  @echo "`date` done" > log.txt
+clean:			  
+	@rm *.o
+	@echo "`date` done" > log.txt
   ```
 ### Access external scripts 
-```makefile 
-  test:
-	  @python analysis.py
+```makefile
+test:
+	@python analysis.py
   ```
 ### Makefile name is Mandatory ?
 ```makefile
