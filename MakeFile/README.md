@@ -1,7 +1,7 @@
 # Makefile 
 
 ## Table of Contents
-
+ 
 1. [Introduction to Makefile](#introduction-to-makefile)
 2. [Basic Syntax and Structure](#basic-syntax-and-structure)
 3. [PHONY Targets](#phony-targets)
@@ -13,6 +13,10 @@
 9. [Common Built-in Functions in Makefiles](#Common-Built-in-Functions-in-Makefiles)
 10. [Lab 2](#lab-2)
 11. [Understanding Implicit Rules in Makefiles](#Understanding-Implicit-Rules-in-Makefiles)
+12. [Loop](#loop-in-Makefile)
+13. [Condition](#if-condition)
+14. [Include](#include)
+
 
 ---
 
@@ -80,27 +84,27 @@ target: prerequisites
 
 ### substitute variable 
 ```makefile
-  echo $(files)
+echo $(files)
 ```
 ### Disaple Echo 
 ``` makefile
-  Using @ ex :   @echo "hello"
+Using @ ex :   @echo "hello"
 ```
 ### Access Enviroment Variable
 ```makefile
-  it is accessible ex :   echo $(PATH)
+it is accessible ex :   echo $(PATH)
 ```
   
 ### Access shell commands
 ```makefile
-  clean:			  
-    @rm *.o
-	  @echo "`date` done" > log.txt
+clean:			  
+	@rm *.o
+	@echo "`date` done" > log.txt
   ```
 ### Access external scripts 
-```makefile 
-  test:
-	  @python analysis.py
+```makefile
+test:
+	@python analysis.py
   ```
 ### Makefile name is Mandatory ?
 ```makefile
@@ -621,9 +625,9 @@ clean:
 - **Functionality**: The Makefile remains functional as `make` understands how to compile each `.c` file into a corresponding `.o` file using the default implicit rule (`$(CC) -c $< -o $@`).
 
 
+---
 
-
-## loop in Makefile
+# loop in Makefile
  
 ### bash style
  ```makefile
@@ -653,8 +657,8 @@ loop2:
 	@echo $(list_2)
 ```
 
-
-## if condition
+---
+# if condition
 ```
 ifeq (arg1, arg2)
 ifeq 'arg1' 'arg2'
@@ -699,7 +703,7 @@ ifdef $(foo)
 endif
 
 ```
-
+---
 # include
 Include any other files in the makefile.
 ``` makefile
