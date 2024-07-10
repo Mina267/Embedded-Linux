@@ -1,3 +1,4 @@
+# *Personal Lecture Notes*
 # Run Bash file
 ```bash
 ./file_name.sh 
