@@ -41,6 +41,8 @@
    - [Redirecting Output](#redirecting-output)
    - [Redirecting Errors](#redirecting-errors)
 14. [Process and File Descriptor Management](#process-and-file-descriptor-management)
+15. [Piping |](#Piping-|)  
+16. [Links](#Links)
 
 
 ---
