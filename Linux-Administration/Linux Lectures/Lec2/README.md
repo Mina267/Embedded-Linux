@@ -1,536 +1,366 @@
+# 1- linux filesystem
+etc: configration
+dev: node
+sys: registers in the devices 
+bin: commands user can use it
+sbin: command system
+boot: files booting (kernal, bootloader)
+home: home foder for all user in device
+usr: lin and headers
+media: external storage connected through socket like USB
+mnt: internal storage on the board connected in kit
 
-# Linux System Guide
-
-## Table of Contents
-1. [Linux Filesystem](#1-linux-filesystem)
-2. [Variables](#2-variables)
-   - [Global Variables](#global-environment)
-   - [Local Variables](#local)
-3. [Types of Commands](#3-types-of-commands)
-   - [External Commands](#1-external-commands)
-   - [Internal Commands](#2-internal-commands)
-   - [Alias Commands](#alias-commands)
-4. [Wildcard](#4-wildcard)
-5. [Environment](#environment)
-   - [File .bashrc](#file-bashrc)
-   - [File .profile](#file-profile)
-6. [Reading Files](#read-files)
-   - [cat](#1-cat)
-   - [less or more](#2-less-or-more)
-   - [gedit](#3-gedit)
-   - [VS Code](#4-vs-code)
-7. [Editing Files](#edit-files)
-   - [vi or vim](#5-vi-or-vim)
-   - [nano](#6-nano)
-8. [Head and Tail](#7-head-tail)
-9. [Searching Files](#search-files)
-   - [locate](#a-locate)
-   - [find](#b-find)
-   - [whereis](#c-whereis)
-10. [Pattern Searching in Files](#pattern-searching-in-files)
-   - [Using `grep`](#using-grep)
-11. [Redirection and File Descriptors](#redirection-and-file-descriptors)
-   - [Basic Redirection](#basic-redirection)
-   - [File Descriptors Explained](#file-descriptors-explained)
-12. [C Application Examples](#c-application-examples)
-   - [Example 1](#example-1)
-   - [Example 2](#example-2)
-   - [Example 3](#example-3)
-   - [Example 4](#example-4)
-13. [Changing Output Destination](#changing-output-destination)
-   - [Redirecting Output](#redirecting-output)
-   - [Redirecting Errors](#redirecting-errors)
-14. [Process and File Descriptor Management](#process-and-file-descriptor-management)
-
-
----
-
-## 1. Linux Filesystem
-
-The Linux filesystem is organized in a hierarchical structure, starting from the root directory (`/`). Each directory serves a specific purpose:
-
-- **/etc:** Configuration files for the system.
-- **/dev:** Device nodes.
-- **/sys:** System files, including device registers.
-- **/bin:** Essential command binaries for all users.
-- **/sbin:** System binaries for administration.
-- **/boot:** Files for booting (kernel, bootloader).
-- **/home:** Home directories for all users.
-- **/usr:** User binaries and headers.
-- **/media:** Mount points for removable media like USB drives.
-- **/mnt:** Mount points for temporarily mounted filesystems.
-
-![Linux Filesystem](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_file_system_structure.svg)
-
-## 2. Variables
-
-### Global (Environment)
-Global variables are accessible to any child processes spawned by the parent process.
-
-- Command to set a global variable:
-  ```sh
-  export GLOBAL=hi
-  ```
-- Commands to see all global variables:
-  ```sh
-  printenv
-  set
-  ```
-
-### Local
-Local variables are only accessible within the shell session where they are defined.
-
-- Command to set a local variable:
-  ```sh
-  LOCAL=hi
-  ```
-
-### Command to Print Variables
-- `echo` command prints variables to the terminal:
-  ```sh
-  echo $VARIABLE_NAME
-  ```
-
-## 3. Types of Commands
-
-### 1. External Commands
-- Executable programs stored in `/bin`, `/usr/bin`, or other directories listed in the `$PATH`.
-
-### 2. Internal Commands
-- Built-in commands in the shell, such as `cd`, `echo`.
-
-### Alias Commands
-Aliases are shortcuts for longer commands.
-
-- Create a shortcut for a command:
-  ```sh
-  alias ll='ls -la'
-  ```
-- Remove an alias:
-  ```sh
-  unalias ll
-  ```
-
-## 4. Wildcard
-Wildcards are used to match patterns in file and directory names.
-
-- `?`: Matches any single character.
-- `*`: Matches any number of characters.
-- `[]`: Matches any one of the enclosed characters.
-- `{}`: Matches any of the patterns within the braces, e.g., `{*.pdf, *.c}`.
-
-## Environment
-
-### File .bashrc
-The `.bashrc` file runs automatically when a new terminal session is opened. It is used to configure the terminal, set environment variables, and define aliases.
-
-- Path: `~/.bashrc`
-- Hidden files (like `.bashrc`) can be viewed using:
-  ```sh
-  ls -a
-  ```
-
-#### Key Configurations:
-- **PS1**: Defines the terminal prompt appearance.
-- To edit `.bashrc`, use a text editor:
-  ```sh
-  gedit ~/.bashrc
-  ```
-
-### File .profile
-The `.profile` file runs once at login and is used to configure the user environment and run programs/scripts at login.
-
-- Path: `~/.profile`
-
-## Read Files
-
-### 1. cat
-The `cat` command prints the content of a file to the terminal.
-
-- Example:
-  ```sh
-  cat filename
-  ```
-
-### 2. less or more
-For viewing large files, `less` and `more` provide pagination.
-
-- **less**: Allows scrolling through large files.
-  - Search: `/search_term`
-  - Next occurrence: `n`
-  - Previous occurrence: `N`
-  - Quit: `q`
-- **more**: Similar to `less`, but only allows forward movement.
-
-### 3. gedit
-`gedit` is a GUI-based text editor.
-
-- Example:
-  ```sh
-  gedit filename
-  ```
-
-### 4. VS Code
-Visual Studio Code (VS Code) is a popular GUI-based code editor.
-
-## Edit Files
-
-### 5. vi or vim
-`vi` or `vim` is a powerful text editor available in the terminal.
-
-- Install `vim`:
-  ```sh
-  sudo apt install vim
-  ```
-
-#### Modes in `vim`:
-- **Read mode**: Default mode.
-  - Search: `/search_term`
-  - Next occurrence: `n`
-  - Previous occurrence: `N`
-- **Insert mode**: Enter by pressing `i`.
-  - Exit to read mode: `Esc`
-- **Command mode**: Enter by pressing `:`.
-  - Quit: `:q`
-  - Force quit: `:q!`
-  - Save and quit: `:wq`
-
-#### Common Shortcuts:
-- Delete line: `dd`
-- Copy line: `yy`
-- Paste: `p`
-- Visual select: `v`
-
-### 6. nano
-`nano` is a simple terminal text editor.
-
-- Save and exit:
-  - `Ctrl + X`, then `Y`, and `Enter`
-
-## 7. Head-Tail
-The `head` and `tail` commands are used to print the beginning or end of a file, respectively.
-
-- **head**: Prints the first 10 lines of a file.
-  ```sh
-  head filename
-  ```
-- **tail**: Prints the last 10 lines of a file.
-  ```sh
-  tail filename
-  ```
-
-## Search Files
-
-### a. locate
-The `locate` command searches a database of all files on the system.
-
-- Install `locate`:
-  ```sh
-  sudo apt install locate
-  ```
-- Example:
-  ```sh
-  locate filename
-  ```
-
-### b. find
-The `find` command searches for files in a directory hierarchy.
-
-- Examples:
-  ```sh
-  find [PATH] -name filename
-  find . -name main.c   # Case sensitive
-  find . -iname main.c  # Case insensitive
-  ```
-
-### c. whereis
-The `whereis` command locates the binary, source, and manual page files for a command.
-
-- Example:
-  ```sh
-  whereis command
-  ```
-
----
-
-**Note:** If `.bashrc` or `.profile` is not found in the home directory, system-wide versions can be used as backups located in `/etc/`.
-
-
-## Pattern Searching in Files
-
-### Using `grep`
-The `grep` command is used to search for a specific pattern within files.
-
-- **Basic Syntax**:
-  ```sh
-  grep [pattern] [file]
-  ```
-  - `pattern`: The string or regex to search for.
-  - `file`: The file to search within.
-
-- **Recursive Search**:
-  ```sh
-  grep -R [pattern] [directory]
-  ```
-  - `-R`: Search recursively through the directory.
-
-- **Common Options**:
-  - `-n`: Print line number.
-  - `-i`: Ignore case sensitivity.
-
-Example:
-```sh
-grep -n "main" main.c
-```
-
----
-
-## Redirection and File Descriptors
-
-### Basic Redirection
-Redirection allows you to control where the output of a command goes, or where the input comes from.
-
-- **Output Redirection**:
-  ```sh
-  command > file
-  ```
-  Redirects the output of the command to the specified file.
-
-- **Append Output**:
-  ```sh
-  command >> file
-  ```
-  Appends the output to the specified file.
-
-- **Error Redirection**:
-  ```sh
-  command 2> file
-  ```
-  Redirects the error output of the command to the specified file.
-
-Example:
-```sh
-echo "Hello, World!" > output.txt
-```
-
-### File Descriptors Explained
-File descriptors are integer handles used to identify an open file for a process. The default file descriptors are:
-- `0`: Standard Input (stdin)
-- `1`: Standard Output (stdout)
-- `2`: Standard Error (stderr)
-
-Example:
-```sh
-cat main.c > output.txt
-```
-This redirects the standard output (fd 1) of `cat` to `output.txt`.
-
----
-
-## C Application Examples
-
-### Example 1
-
-```c
-#include <stdio.h>
-
-int main(void) {
+
+# 2- Variables
+## Global (enviroment)
+export GLOBAL=hi
+
+advantage of global when you open child process from parent process you can see the output
+1-->
+
+## Local
+LOCAL=hi
+
+in child process will not see the about of local variable
+1-->2
+
+## command to see all olable vriables
+$printenv
+$set
+
+## command echo 
+echo print variable on terminal
+
+# 3- types of command
+## 1- enternal command
+kernal --> bin 
+## 2- internal command
+bin/bash  -->source build inside the bash
+## alias command
+given another name for the command
+$alias
+$unalias
+
+# 4- wildcard
+? * [] {*.pdf, *.c}
+
+
+
+# *Enviroment*
+# File .bashrc
+ 
+ script once you open terminal run over bash autmatically run .bashrc
+Handle the design of the bash terminal
+PS1 in bash rc respoible for design
+path ~/.bashrc
+ .: means hidden file
+
+ls -a list all file include hidden
+
+eah user has (home directory)
+create .bashrc reposible for 
+1- design terminal shape
+2- set variable during open terminal
+3- run APP. or scripts once you open the trerminal
+4- .bashrc setup enviroment variable for teminal (vriable, alias) 
+### for edit files
+gedit .bashrc.
+
+## File .profile
+
+1- for each user has this file
+run once you login to your user
+run anthything program, stript ect. during login
+
+
+
+path: ~/.profile
+
+/bin: for all user in machine
+./local/bin: save collect of binary for specific user, save any it any user created command.
+
+if .bashrc or .profile didnot exist in home directory of user not found?
+run backup -> etc/.bashrc etc/.profile
+
+
+# Read file
+## 1- cat (Concatenate)
+print file contect on the terminal
+## 2- less or more 
+
+(terminal buffer) is limmited buffer file more size than 10000 line cannot print on yhe termnal once 
+beacuse max terminal buffer is limmited
+so by using less will divide the file into managebale parts and easy to scroll 
+for example scroll data on the website
+/: search
+n: next accurency
+N: previous
+q:quit
+
+more: scroll down only till the end of file and close autmatically
+
+## 3- gedit  
+read write using GUI
+
+# 4- VS code
+
+## 5- Edit file 
+## vi or vim
+sudo apt install vim
+read & write file using terminal
+it need bash only to run vim, but bash is independent app. 
+how to navigate through vi  right --> L left --> h up --> k down --> j
+navigate through by using arrows
+
+## vim work in three mode
+### 1- read(less)
+/ serach 
+n next 
+N previous occutency
+
+### 3- inert mode (i)
+
+esc: return isert mode to read read mode
+3- command mode
+:q --> quit not work if you edit the file
+:q!--> force quit
+:wq --> save and quit
+
+some sort cuts in read mode
+dd: delete line
+yy: copy
+p: paste
+v: select
+
+## 6- nano
+rdit file 
+save: ctrl + x --> y + enter
+
+# 7- head-tail
+head print first 10 lines of file
+tail: print last 10 lines of the file
+
+# search file
+## a - locate
+sudo apt install locate
+data base of all computer (in all HDD)
+## b- find 
+find [PATTH] -name file
+find . -name main.c --> case sensetive
+find . -iname main.c --> ignore case sensetivity
+
+## c- whereis  
+under dierctrioes $PATH
+
+# search patern in file
+## a - locate
+a- grep
+prep [pattern] [file]
+grep -R [pattern] [directory]
+enter directory to search for pattern
+-R :recurcive
+-n --> print line number
+-i --> ignore case sensetivity
+
+# Redirection & file descriptor
+`>` : output on another file 
+`>>`: input from anther file
+`2>`: output error on another file
+
+echo hello --> show interminal
+cat main.c --> show interminal
+
+
+myApp
+int main(argv**, argc[]){return 0;};
+./myApp hello --> terminal command
+
+
+cat only work like that
+while (1)
+{
+    scanf();
+    printf();
+}
+
+
+if i want aoutput to print in another file 
+cat main.c > output
+will print in output file 
+
+file descriptor (for any process)  
+file --> 0 --> terminal --> input
+file --> 1 --> terminal --> output
+file --> 2 --> terminal --> error
+
+when run cat main.c --> terminal fd(1)
+scanf --> input from file
+
+all three file will create for that procces `cat main.c`
+kernal create three file descriptor
+
+### example 1
+``` c
+int main(void)
+{
     int var = 0;
-    /* Print a message to the terminal */
+    /* by default print on the terminal */
     printf("hello\n");
-    /* Take input from the terminal */
+    /* by default take input from the terminal */
     scanf("%d", &var);
-    /* Print the input value */
     printf("%d \n", var);
     return 0;
 }
 ```
-
-#### Building and Running
-To compile and run the program:
+build program
 ```sh
 gcc main.c -o myexe
 ./myexe
 ```
 
-### Example 2
+open another terminal
+```sh
+# all process running include myexe
+ls /proc/
+# all process running like task manager
+ps -aux
+# process runing in the terminal only
+ps -at
+# get PTD for myexe task
+cd ~/proc
+cd [PID]
+# all information saved in from for that process cmdline, stack, fd etc
+ls 
+# enter file descriptor
+cd fd
+# Will see there is three file created for that process 0 1 2 and all of them point to the terminal
 
-```c
-#include <stdio.h>
+```
 
-int main(void) {
+change output to be instead of terminal to output file
+``` sh
+./myexe > output
+```
+
+``` sh
+ps -at
+cat [PID]/fd
+ls -lh [PID]/fd
+# file 1 redirect (output) will point to outputfile instead of terminal
+```
+
+``` sh
+# output to print file, and input from var file
+./a.out > print < var
+```
+
+
+
+
+
+
+### example 2
+``` c
+int main(void)
+{
     int var = 0;
-    /* Print an error message to stderr */
-    fprintf(stderr, "hello\n");
-    /* Take input from the terminal */
+    /* by default print on the terminal, stderr mean 2 error file*/
+    fprintf(stderr,"hello\n");
+    /* by default take input from the terminal */
     scanf("%d", &var);
-    /* Print the input value */
     printf("%d \n", var);
     return 0;
 }
 ```
-
-#### Redirecting Errors
-To redirect errors to a file:
 ```sh
-./myexe 2> output.txt
+# redirect error to output file
+./myexe 2> output
 ```
 
 ### Example 3
-
-```c
-#include <stdio.h>
-
-int main(void) {
+``` c
+int main(void)
+{
     char var = 0;
-    /* Print an error message to stderr */
-    fprintf(stderr, "hello from error\n");
-    /* Print a message to the terminal */
+    /* by default print on the terminal, stderr mean 2 error file*/
+    fprintf(stderr,"hello from error\n");
+    /* by default take input from the terminal */
     printf("hello from here\n");
-    /* Print a message to stdout */
-    fprintf(stdout, "hello from out\n");
-    /* Take input from the terminal */
+    /* by default print on the terminal, stdout mean 1 output file*/
+    fprintf(stdout,"hello from out\n");
+    
     scanf("%c", &var);
-    /* Print the input value */
     printf("%c \n", var);
     return 0;
 }
 ```
-
-#### Running with Redirection
-To redirect standard input, output, and error:
 ```sh
-./myexe 2> error.txt > output.txt < input.txt
+# redirect error to output file
+gcc main.c -o myexe
+./myexe 2> output
+# terminal output :  hello from here
+# 
+
+./myexe 2> error > output < var
+# terminal output :  
+# all out, in, error redirected to files
 ```
 
+to direct error of gcc complier
+```sh
+gcc main.c 2> filename
+```
 ### Example 4
-
-```c
+``` c
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 
-int main(void) {
+int main(void)
+{
     char var = 0;
-    int fd = 0;
-    /* Open a file and get its file descriptor */
-    fd = open("var.txt", O_RDWR);
-    /* Print the file descriptor */
+    int FD = 0;
+    /* will open form me new file descriptor */
+    fd = open("var", O_RDWR);
     printf("My file descriptor:%d \n", fd);
-    /* Write to the file descriptor */
+    /* write in that new file descriptor */
     write(fd, "hiiiii", 7);
-    /* Print an error message to stderr */
-    fprintf(stderr, "hello from error\n");
-    /* Print a message to the terminal */
+
+    /* by default print on the terminal, stderr mean 2 error file*/
+    fprintf(stderr,"hello from error\n");
+    /* by default take input from the terminal */
     printf("hello from here\n");
-    /* Print a message to stdout */
-    fprintf(stdout, "hello from out\n");
-    /* Take input from the terminal */
+    /* by default print on the terminal, stdout mean 1 output file*/
+    fprintf(stdout,"hello from out\n");
+    
     scanf("%c", &var);
-    /* Print the input value */
     printf("%c \n", var);
     return 0;
 }
 ```
-
-#### Running with Redirection
-To redirect to a specific file descriptor:
 ```sh
-./myexe 3> output.txt
+# redirect error to output file
+gcc main.c -o myexe
+./myexe 
+
+./myexe 3> output
+
 ```
 
----
+# piping |
+IPC inter process communication
 
-## Changing Output Destination
+each process has its own heap and stack
+each process is application
+share resource between process
 
-### Redirecting Output
-To redirect the output of a program to a file instead of the terminal:
-```sh
-./myexe > output.txt
-```
+run procces and output of that process is input to another process
 
-### Redirecting Errors
-To redirect errors to a file:
-```sh
-./myexe 2> error.txt
-```
-
----
-
-## Process and File Descriptor Management
-
-### Managing Processes
-To view and manage processes, you can use the following commands:
-
-- **List All Processes**:
-  ```sh
-  ps -aux
-  ```
-- **List Terminal Processes**:
-  ```sh
-  ps -at
-  ```
-
-- **Access Process Details**:
-  ```sh
-  cd /proc/[PID]
-  ls -lh fd
-  ```
-  This will show file descriptors `0`, `1`, and `2` for the process.
-
-### Changing Output File Descriptor
-To change the output file descriptor from terminal to a file:
-```sh
-./myexe > output.txt
-```
-Then, inspect the file descriptors:
-```sh
-ls -lh /proc/[PID]/fd
-```
-File descriptor `1` will point to `output.txt` instead of the terminal.
-
----
-
-# Piping |
-
-IPC (Inter-Process Communication)
-
-Each process has its own heap and stack. Each process is an application that can share resources with other processes. Piping allows the output of one process to be used as the input for another process.
-
-Example:
 ```sh
 cat main.c | grep [pattern]
+
 find . --iname | grep ^/
 ```
-
-# Links
-
-## 1. Soft Link
-A soft link (or symbolic link) acts as a shortcut to a file.
-
-1. Run an application from another location.
-2. Edit a file from another location.
-
-When you create a file (e.g., `main.c`), it has a location in memory (inode). A soft link can access this file from another location without making a copy.
-
-Command:
-```sh
-ln -s main.c mySoftLink
-```
-`mySoftLink` points to the location of `main.c`. The soft link has a different inode and is typically 8 bytes in size.
-
-## 2. Hard Link
-A hard link creates an alias to a file. Both the hard link and the original file share the same inode and location.
-
-Command:
-```sh
-ln main.c myHardLink
-```
-Both `myHardLink` and `main.c` share the same inode and are essentially the same file.
-
-**Differences Between Hard and Soft Links**:
-- Soft links can work with directories, while hard links cannot.
-- Hard links can only work with files.
 
