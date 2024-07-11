@@ -1,7 +1,6 @@
 
-# README.md
 
-## Package Management
+# Package Management
 
 Package management in Linux involves installing, updating, and removing software packages. Different distributions use different package managers. Below is a detailed guide for Debian and RedHat-based systems, and an overview of the `apt` package manager.
 
@@ -190,4 +189,3 @@ Linux systems have different types of users with unique IDs and roles.
   su NEW_USER
   ```
 
-This comprehensive guide covers the basics of package management, compression, archiving, and user management in Linux. Follow the commands and notes for efficient system administration.
