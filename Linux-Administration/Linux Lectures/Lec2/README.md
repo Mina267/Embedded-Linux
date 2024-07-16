@@ -78,6 +78,18 @@ Global variables are accessible to any child processes spawned by the parent pro
   set
   ```
 
+### Display All Shell Variables and Functions
+To display all shell variables and functions:
+ ```sh
+  set
+  ```
+### Setting Shell Options
+You can use the -o option with set to enable or disable specific shell options. For example:
+
+```sh
+set -o option_name   # Enable the option
+set +o option_name   # Disable the option
+```
 ### Local
 Local variables are only accessible within the shell session where they are defined.
 
