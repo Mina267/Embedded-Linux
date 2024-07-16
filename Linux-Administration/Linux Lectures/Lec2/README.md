@@ -28,7 +28,7 @@
    - [find](#b-find)
    - [whereis](#c-whereis)
 10. [Pattern Searching in Files](#pattern-searching-in-files)
-   - [Using `grep`](#using-grep)
+   - [Using grep](#using-grep)
 11. [Redirection and File Descriptors](#redirection-and-file-descriptors)
    - [Basic Redirection](#basic-redirection)
    - [File Descriptors Explained](#file-descriptors-explained)
@@ -62,7 +62,6 @@ The Linux filesystem is organized in a hierarchical structure, starting from the
 - **/media:** Mount points for removable media like USB drives.
 - **/mnt:** Mount points for temporarily mounted filesystems.
 
-![Linux Filesystem](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_file_system_structure.svg)
 
 ## 2. Variables
 
