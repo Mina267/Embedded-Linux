@@ -4,8 +4,8 @@
 ls -lh
 ```
 
-> \- | --- | --- | --- | owener : group myfile
-<br>
+> \- | --- | --- | --- | owner : group myfile
+
 > *File type* | *owner* | *group* | *other*
 > ## File type
 > - `-`: Regular file, (main.c, .txt)
