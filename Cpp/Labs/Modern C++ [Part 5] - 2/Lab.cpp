@@ -15,7 +15,7 @@ private:
 public:
 	Battleship(int maxGuesses) : guesses(0), maxGuesses(maxGuesses)
 	{
-		board = board = std::vector<std::vector<bool>>(5, std::vector<bool>(5, false));
+		board = std::vector<std::vector<bool>>(5, std::vector<bool>(5, false));
 
 		std::srand(std::time(0));
 		locationX = std::rand() % 5;
