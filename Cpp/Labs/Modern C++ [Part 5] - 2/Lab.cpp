@@ -1,13 +1,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
+#include <vector>
 
 
 class Battleship
 {
 private:
-	bool board[5][5];
+	std::vector<std::vector<bool>> board;
 	int guesses;
 	int maxGuesses;
 	int locationX;
@@ -15,13 +15,7 @@ private:
 public:
 	Battleship(int maxGuesses) : guesses(0), maxGuesses(maxGuesses)
 	{
-		for (int i = 0; i < 5; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				board[i][j] = false;
-			}
-		}
+		board = board = std::vector<std::vector<bool>>(5, std::vector<bool>(5, false));
 
 		std::srand(std::time(0));
 		locationX = std::rand() % 5;
