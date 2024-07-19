@@ -63,6 +63,7 @@ sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/sd.i
 
 editenv bootcmd
 edit: fatload mmc 0:1 0x62000000 /ubootScript.img; source 0x62000000
+saveenv
 
 ```
 
