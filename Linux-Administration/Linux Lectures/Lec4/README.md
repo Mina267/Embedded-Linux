@@ -10,12 +10,12 @@ ls -lh
 > ## File type
 > - `-`: Regular file, (main.c, .txt)
 > - `b`: Block device.
-> - `e`: Charater device series.
+> - `e`: Character device series.
 > - `n`: Network device
 > - `d`: Directory device
 
 ## Owner of file
-> #### *The one who creatw the file*
+> #### *The one who create the file*
 
 - *Example*
 ```sh
@@ -61,8 +61,8 @@ When a new user is created, the following steps are performed:
 >adduser USER_NAME
 >```
 > - `/etc/passwd`: user in device.
-> - `/etc/`: passwords.
-> - `/etc/`: group.
+> - `/etc/shadow`: passwords.
+> - `/etc/group`: group.
 > 
 >  - The contents of `/etc/skel` are copied to `/home/newuser`.
 >
@@ -415,7 +415,7 @@ The sticky bit is a special permission used on directories to prevent users from
 
 ### Scenario
 
-Consider a directory called `shared_dir` with special permissions set for group ID (setgid). User `mina` is the owner of this directory and it belongs to the group `min`, which includes two other users. When any user in the group creates a file in this directory, the file's owner will be the user who created it, and the group will be `min`. However, without the sticky bit, any user in the group can delete or rename files created by other users.
+Consider a directory called `shared_dir` with special permissions set for group ID (setgid). User `mina` is the owner of this directory and it belongs to the group `mina`, which includes two other users. When any user in the group creates a file in this directory, the file's owner will be the user who created it, and the group will be `mina`. However, without the sticky bit, any user in the group can delete or rename files created by other users.
 
 To protect against this, you can set the sticky bit on the directory.
 
@@ -501,6 +501,7 @@ drwxrwsrwt 2 mina mina 4096 Jul 16 12:34 shared_dir
 The sticky bit ensures that only the owner of a file or a superuser can delete or rename files in a shared directory, preventing users from interfering with each other's files. This is particularly useful in collaborative environments where multiple users need to create and manage files in the same directory.
 
 By using the sticky bit, you can maintain better control over file permissions and protect users' files from being deleted or modified by others.
+
 ---
 
 # Set special permission
@@ -521,7 +522,7 @@ chmod u+s myFile
 chmod g+s myFile
 ```
 
-## Rips commands
+## Tips commands
 ```sh
 # List member of the group
 groupmems -g GROUP_NAME -l
