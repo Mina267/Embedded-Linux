@@ -1,7 +1,7 @@
 
-# U-Boot Installation and Configuration Guide for Vexpress Cortex A9 (QEMU Emulator)
+# U-Boot Installation and Configuration  for Vexpress Cortex A9 (QEMU Emulator)
 
-This guide provides a detailed step-by-step process to install and configure U-Boot for the Vexpress Cortex A9 emulator using QEMU.
+
 
 ## 1. Clone the U-Boot Repository
 
@@ -84,7 +84,7 @@ Set a custom shell prompt for U-Boot.
 
 1. Return to the **home menu**.
 2. Select **Command line interface**.
-3. Set the shell prompt to `ITI_INTAKE44=>`.
+3. Set the shell prompt to `Mina=>`.
 
 ### e. Unset Support of Flash
 

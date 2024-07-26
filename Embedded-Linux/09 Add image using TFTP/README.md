@@ -265,7 +265,7 @@ sudo cp ~/linux/arch/arm/boot/dts/arm/vexpress-v2p-ca9.dtb /srv/tftp/
 ```sh
 sudo mkimage -A arm -T script -C none -a 0x62000000 -e 0x62000000 -n 'load Script' -d TFTP_script.txt ~/SD-card/boot/TFTP_script.img
 ```
-### TFTP_script.txt
+#### TFTP_script.txt
 ```bash
 setenv ipaddr 192.168.1.9
 setenv serverip 192.168.1.8
@@ -286,9 +286,13 @@ editenv bootcmd
 edit: fatload mmc 0:1 0x62000000 /TFTP_script.img; source 0x62000000
 saveenv 
 ```
-
+### Run qemu again
 
 ```sh
 sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/SD-card/sd.img  -net tap,script=./qemu-ifup -net nic
 
 ```
+### Kernel will start, but it will panic 
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/3f7f046b-594b-4c8d-a5ca-38709bb61b7d" width=100% height=100% />
+</p>

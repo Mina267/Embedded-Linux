@@ -2,7 +2,7 @@
 
 ## Linux
 
-
+### *Script*
 ```bash
 
 for bootOption in mmc nic NoOption; do
@@ -40,24 +40,24 @@ for bootOption in mmc nic NoOption; do
     fi
 done
 ```
-
+### *Make executable image for u-boot to run script*
 ```bash
 sudo mkimage -A arm -T script -C none -a 0x62000000 -e 0x62000000 -n 'MMC Check Script' -d ubootScript.txt ~/boot/ubootScript.img
 ```
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/9d3898b4-aff3-4b0d-a9da-c21e75aebfc3" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/9d3898b4-aff3-4b0d-a9da-c21e75aebfc3" width=75% height=75% />
 </p>
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/cf73498a-8089-4e6f-ab3e-9c947c54bf1c" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/cf73498a-8089-4e6f-ab3e-9c947c54bf1c" width=75% height=75% />
 </p>
 
-
+### *Run qemu*
 ```bash
 sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/sd.img  -net tap,script=./qemu-ifup -net nic
 
 ```
 
-## qemu
+## qemu save script to load in booting
 
 ``` bash
 
@@ -68,7 +68,7 @@ saveenv
 ```
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/93108637-563c-4658-ae57-9bdc670acadd" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/93108637-563c-4658-ae57-9bdc670acadd" width=75% height=75% />
 </p>
 
 
@@ -78,6 +78,6 @@ saveenv
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/570319d2-2c29-4e1d-824e-960e9b4ee3f4" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/570319d2-2c29-4e1d-824e-960e9b4ee3f4" width=75% height=75% />
 </p>
 
