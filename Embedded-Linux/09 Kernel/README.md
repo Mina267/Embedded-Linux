@@ -52,7 +52,7 @@ You can customize your kernel image as needed:
 make menuconfig
 ```
 
-#### Enable devtmpfs
+#### devtmpfs
 
 1. Select `Device Drivers`.
 2. Select `Generic Driver Options`.
