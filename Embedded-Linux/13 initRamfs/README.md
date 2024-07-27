@@ -96,7 +96,7 @@ sudo chown -R root:root *
 # initramfs Script 
 #### To select between two root filesystems rootfs1 and rootfs1 or quitting and use ramfs. `bin/RamfsScript` 
 ``` bash
-Script Content
+
 #!/bin/sh
 echo "Select your desired booting option:"
 echo "1) rootfs1"
@@ -136,6 +136,9 @@ find . | cpio -H newc -ov --owner root:root > ../initramfs.cpio
 cd ..
 gzip initramfs.cpio
 mkimage -A arm -O linux -T ramdisk -d initramfs.cpio.gz uRamdisk
+
+sudo cp -rp uRamdisk /media/mina/boot
+
 ```
 
 
@@ -149,7 +152,7 @@ sudo cp ./uRamdisk /media/mina
 ```
 ```bash
 # In bootargs variable you need to configure like this
-setenv bootargs "console=ttyAMA0 rdinit=/bin/sh"
+setenv bootargs "console=tty0 console=ttyAMA0, 38400n8 rdinit=/sbin/init"
 
 # make sure the variable initramfs doesn't overwrite the dtb and zimage variables
 setenv initramfs 0x60900000
@@ -159,6 +162,8 @@ fatload mmc 0:1 $fdt_addr_r vexpress-v2p-ca9.dtb
 fatload mmc 0:1 $initramfs uRamdisk
 
 bootz $kernel_addr_r $initramfs $fdt_addr_r
+
+
 ```
 
 ```sh
@@ -181,7 +186,7 @@ This project demonstrates how to create, partition, and manage a virtual SD card
 2. **Setup Loop Device:**
 
    ```bash
-   sudo losetup -f --show --partscan sd.img
+   sudo losetup -f --show --partscan sd2.img
    ```
 
    Assume the loop device is `/dev/loop0`.
@@ -224,3 +229,12 @@ This project demonstrates how to create, partition, and manage a virtual SD card
    ```
 
 
+# running
+
+```
+sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/SD-card/sd2.img  -net tap,script=./qemu-ifup -net nic
+```
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/26e99136-a684-44dd-b399-5edb116603a2" width=75% height=75% />
+</p>
