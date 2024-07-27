@@ -152,18 +152,18 @@ sudo cp ./uRamdisk /media/mina
 setenv bootargs "console=ttyAMA0 rdinit=/bin/sh"
 
 # make sure the variable initramfs doesn't overwrite the dtb and zimage variables
-setenv initramfs [chose a value depends on bdinfo]
+setenv initramfs 0x60900000
 
 fatload mmc 0:1 $kernel_addr_r zImage
-fatload mmc 0:1 $fdt_addr_r am335x-boneblack.dtb
+fatload mmc 0:1 $fdt_addr_r vexpress-v2p-ca9.dtb
 fatload mmc 0:1 $initramfs uRamdisk
-setenv bootargs console=ttyO0,115200 rdinit=/bin/sh
 
 bootz $kernel_addr_r $initramfs $fdt_addr_r
-
 ```
 
-
+```sh
+sudo mkimage -A arm -T script -C none -a 0x62000000 -e 0x62000000 -n 'load Script' -d RAMfs.txt /media/mina/boot/RAMfs.img
+```
 
 
 # Virtual SD Card Partitioning and Management
@@ -210,17 +210,17 @@ This project demonstrates how to create, partition, and manage a virtual SD card
 5. **Mount the Partitions:**
 
    ```bash
-   sudo mkdir -p /mnt/boot /mnt/rootfs1 /mnt/rootfs2
-   sudo mount /dev/loop0p1 ~/boot
-   sudo mount /dev/loop0p2 ~/rootfs1
-   sudo mount /dev/loop0p3 ~/rootfs2
+   sudo mkdir -p ./boot ./rootfs1 ./rootfs2
+   sudo mount /dev/loop0p1 ./boot
+   sudo mount /dev/loop0p2 ./rootfs1
+   sudo mount /dev/loop0p3 ./rootfs2
    ```
 
 6. **Copy Files to New Partition:**
 
    ```bash
-   sudo cp -r ~/rootfs/* ~/rootfs1
-   sudo cp -r ~/rootfs/* ~/rootfs2
+   sudo cp -r ~/rootfs/* ~/SD-card/rootfs1
+   sudo cp -r ~/rootfs/* ~/SD-card/rootfs2
    ```
 
 

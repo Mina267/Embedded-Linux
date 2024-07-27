@@ -175,7 +175,7 @@ sudo cp /path/to/linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb /mina/user/boot/
 Navigate to the U-Boot directory and run QEMU with the following command:
 
 ```sh
-qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel /path/to/u-boot -sd /path/to/sd.img
+sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/SD-card/sd.img  -net tap,script=./qemu-ifup -net nic
 ```
 
 ### Set U-Boot Environment Variables
@@ -230,9 +230,29 @@ bootz $kernel_addr_r - $fdt_addr_r
 
 ## Create script image and add to bootcmd
 ```sh 
+setenv bootargs 'console=ttyAMA0 root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait init=/sbin/init'
+
 fatload mmc 0:1 $kernel_addr_r zImage
 fatload mmc 0:1 $fdt_addr_r vexpress-v2p-ca9.dtb
 bootz $kernel_addr_r - $fdt_addr_r
 ```
+``` sh
+sudo mkimage -A arm -T script -C none -a 0x62000000 -e 0x62000000 -n 'load Script' -d BusyBox.txt /media/mina/boot/BusyBox.img
+```
+
+# Running
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/ebc204f5-6efe-4ddb-b1fb-f32c336cc0f0" width=75% height=75% />
+</p>
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/af2d9bbd-c4e5-4a08-bdbc-9db1d25a6a4c" width=75% height=75% />
+</p>
+
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/82a2c2d1-cafd-4f19-a744-866c6ff73e30" width=75% height=75% />
+</p>
+
 
 By following these detailed steps, you will successfully install BusyBox, create a root filesystem, and boot the kernel for an embedded Linux target using QEMU.
