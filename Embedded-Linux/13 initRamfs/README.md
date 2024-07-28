@@ -242,3 +242,11 @@ sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/SD-c
 <p align="center">
 	<img src="https://github.com/user-attachments/assets/26e99136-a684-44dd-b399-5edb116603a2" width=75% height=75% />
 </p>
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/fc63cce3-c627-4f39-afd0-2d919cae4163" width=75% height=75% />
+</p>
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/e456fb4c-6d0f-484c-89cc-169cebc5ab69" width=75% height=75% />
+</p>
