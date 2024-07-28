@@ -96,7 +96,6 @@ sudo chown -R root:root *
 # initramfs Script 
 #### To select between two root filesystems rootfs1 and rootfs1 or quitting and use ramfs. `bin/RamfsScript` 
 ``` bash
-
 #!/bin/sh
 echo "Select your desired booting option:"
 echo "1) rootfs1"
@@ -106,25 +105,27 @@ read -r choice
 
 case $choice in
     1)
-        echo "Lunching rootfs one"
+        echo "Launching rootfs one"
         mkdir -p /mnt/rootfs1
         mount -t ext4 /dev/mmcblk0p2 /mnt/rootfs1
-        /bin/chroot /mnt/rootfs1
+        chroot /mnt/rootfs1
         ;;
     2)
-        echo "Lunching rootfs two"
+        echo "Launching rootfs two"
         mkdir -p /mnt/rootfs2
         mount -t ext4 /dev/mmcblk0p3 /mnt/rootfs2
-        /bin/chroot /mnt/rootfs2
+        chroot /mnt/rootfs2
         ;;
     3)
         echo "Resume in initRamfs"
-        break
+        exit 0
         ;;
     *)
         echo "Wrong selection"
         ;;
 esac
+
+
 ```
 Make the script executable:
 
