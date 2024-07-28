@@ -17,6 +17,8 @@ bootz $kernel_addr_r - $fdt_addr_r
 
 ```
 
+---
+
 <p align="center">
 	<img src="https://github.com/user-attachments/assets/369fc22c-47a0-42d7-8ede-0f464bdff97b" width=75% height=75% />
 </p>
@@ -25,19 +27,15 @@ bootz $kernel_addr_r - $fdt_addr_r
 
 
 <p align="center">
-	<img src="" width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/b299df3c-137e-4501-965a-2851783dc96e" width=75% height=75% />
 </p>
 
 
 
 
 <p align="center">
-	<img src="" width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/7017195c-a26d-456b-beb2-3fec72341e42" width=75% height=75% />
 </p>
 
 
 
-
-<p align="center">
-	<img src="" width=75% height=75% />
-</p>
