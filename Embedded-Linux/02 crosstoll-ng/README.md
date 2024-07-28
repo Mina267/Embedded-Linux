@@ -2,11 +2,7 @@
 # Crosstool-NG Installation and Configuration
 
 
-You can install these packages using the package manager of your distribution. For example, on a Debian-based system:
-```bash
-sudo apt-get update
-sudo apt-get install git gcc g++ make automake libtool pkg-config ncurses-dev
-```
+
 
 ## Clone the Crosstool-NG Repository
 First, clone the Crosstool-NG repository from GitHub:
