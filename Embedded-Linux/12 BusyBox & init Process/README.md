@@ -163,7 +163,7 @@ cp -rp ~/rootfs/* /media/mina/rootfs
 Mount the boot partition of the SD card and copy the kernel image and DTB file:
 
 ```sh
-sudo mount /dev/sdX1 /media/mina/boot
+sudo mount /dev/loop0p1 /media/mina/boot
 sudo cp /path/to/linux/arch/arm/boot/zImage /media/mina/boot/
 sudo cp /path/to/linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb /mina/user/boot/
 ```

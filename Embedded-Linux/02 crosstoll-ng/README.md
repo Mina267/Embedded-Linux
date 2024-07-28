@@ -80,19 +80,19 @@ In the `menuconfig` interface, navigate through the menus and configure the foll
 To search for specific configuration options in `menuconfig`, press the forward slash `/` key and type the keyword.
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/9bab2c5f-83eb-42b4-91bb-160178fdaede" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/9bab2c5f-83eb-42b4-91bb-160178fdaede" width=75% height=75% />
 </p>
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/7bcb1ef8-da06-4e35-bcc9-ac884b493ce3" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/7bcb1ef8-da06-4e35-bcc9-ac884b493ce3" width=75% height=75% />
 </p>
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/8491ccdf-80b4-45bf-a618-b648fc5554bf" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/8491ccdf-80b4-45bf-a618-b648fc5554bf" width=75% height=75% />
 </p>
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/007718a9-a21e-4c13-a856-7db8a486d672" width=100% height=100% />
+	<img src="https://github.com/user-attachments/assets/007718a9-a21e-4c13-a856-7db8a486d672" width=75% height=75% />
 </p>
 
 ## Build the Toolchain

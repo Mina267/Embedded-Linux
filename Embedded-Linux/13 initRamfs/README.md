@@ -47,7 +47,7 @@ mount -t sysfs nodev /sys
 # mount devtmpfs if you forget to configure it in Kernel menuconfig
 mount -t devtmpfs devtmpfs /dev
 # Path to ramfs script 
-sh bin/RamfsScript
+sh PATH_SCRIPT
 ```
 
 Make the script executable:
@@ -126,9 +126,13 @@ case $choice in
         ;;
 esac
 ```
+Make the script executable:
 
+```sh
+chmod +x ./RamfsScript
+```
 # Creating initramfs
-#### initramfs (initial ramdisk filesystem) is a temporary, early root filesystem that is mounted before the real root filesystem becomes available during the Linux kernel's initialization process. It is commonly used in the boot process to perform tasks such as loading essential kernel modules, configuring devices, and preparing the system for the transition to the actual root filesystem.
+* initramfs (initial ramdisk filesystem) is a temporary, early root filesystem that is mounted before the real root filesystem becomes available during the Linux kernel's initialization process. It is commonly used in the boot process to perform tasks such as loading essential kernel modules, configuring devices, and preparing the system for the transition to the actual root filesystem.
 
 ```sh
 cd ~/rootfs
