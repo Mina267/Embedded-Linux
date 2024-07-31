@@ -96,7 +96,6 @@ sudo chown -R root:root *
 # initramfs Script 
 #### To select between two root filesystems rootfs1 and rootfs1 or quitting and use ramfs. `bin/RamfsScript` 
 ``` bash
-
 #!/bin/sh
 echo "Select your desired booting option:"
 echo "1) rootfs1"
@@ -106,25 +105,27 @@ read -r choice
 
 case $choice in
     1)
-        echo "Lunching rootfs one"
+        echo "Launching rootfs one"
         mkdir -p /mnt/rootfs1
         mount -t ext4 /dev/mmcblk0p2 /mnt/rootfs1
-        /bin/chroot /mnt/rootfs1
+        chroot /mnt/rootfs1
         ;;
     2)
-        echo "Lunching rootfs two"
+        echo "Launching rootfs two"
         mkdir -p /mnt/rootfs2
         mount -t ext4 /dev/mmcblk0p3 /mnt/rootfs2
-        /bin/chroot /mnt/rootfs2
+        chroot /mnt/rootfs2
         ;;
     3)
         echo "Resume in initRamfs"
-        break
+        exit 0
         ;;
     *)
         echo "Wrong selection"
         ;;
 esac
+
+
 ```
 Make the script executable:
 
@@ -241,4 +242,12 @@ sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel u-boot -sd ~/SD-c
 
 <p align="center">
 	<img src="https://github.com/user-attachments/assets/26e99136-a684-44dd-b399-5edb116603a2" width=75% height=75% />
+</p>
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/fc63cce3-c627-4f39-afd0-2d919cae4163" width=75% height=75% />
+</p>
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/e456fb4c-6d0f-484c-89cc-169cebc5ab69" width=75% height=75% />
 </p>
