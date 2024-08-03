@@ -174,26 +174,6 @@ sudo ./start-qemu.sh
 
 ---
 
-### Additional Tips
-
-**Set Up U-Boot Commands Automatically:**
-- Create an `extlinux.conf` file in the boot partition:
-```bash
-mkdir -p boot/extlinux
-vim boot/extlinux/extlinux.conf
-```
-
-**Add the Following Content to `extlinux.conf`:**
-```conf
-label buildroot
-    kernel /zImage
-    devicetree /am335x-boneblack.dtb
-    append console=ttyO0,115200 root=/dev/mmcblk0p2 rootwait
-```
-- This configuration sets up the bootloader to automatically boot the generated kernel and root filesystem.
-
----
-
 ### Conclusion
 
 By following these detailed steps, you've successfully added and integrated a custom package into Buildroot, ensuring it is compiled, installed, and tested efficiently.
@@ -208,32 +188,28 @@ By following these detailed steps, you've successfully added and integrated a cu
 <br>
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/66634685-243c-4627-8d25-0154d7324ead
-    " width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/66634685-243c-4627-8d25-0154d7324ead" width=75% height=75% />
 </p>
 
 
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/d0f1a3c6-12f0-4171-be5d-e4b180b0f023
-    " width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/d0f1a3c6-12f0-4171-be5d-e4b180b0f023" width=75% height=75% />
 </p>
 
 
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/262a0dd7-77fa-423c-b011-31493cdcff2f
-    " width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/262a0dd7-77fa-423c-b011-31493cdcff2f" width=75% height=75% />
 </p>
 
 
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/2ada2989-b877-42ab-8942-d80fd530e3a7
-    " width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/2ada2989-b877-42ab-8942-d80fd530e3a7" width=75% height=75% />
 </p>
 
 
