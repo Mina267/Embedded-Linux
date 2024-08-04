@@ -52,7 +52,7 @@ Let's create a custom service called `myservice`.
     Before=tftpd-hpa.service
 
     [Service]
-    ExecStart=/home/mina/app/a.out
+    ExecStart=/home/mina/app/MinaApp
     Type=simple
 
     [Install]
@@ -65,28 +65,33 @@ Let's create a custom service called `myservice`.
 4. **Create the executable script**:
     ```sh
     mkdir /home/mina/app/
-    touch /home/mina/app/a.out
-    vim /home/mina/app/a.out
+    touch /home/mina/app/main.c
+    vim /home/mina/app/main.c
     ```
 
-5. **Add the following content to `a.out`**:
-    ```C
-	#include <unistd.h> 
-	#include <stdio.h>
-
-	int main() {
-    	while (1) 
-    	{
-        	printf("Hello Mina APP service\n");
-        	sleep(5);  
-    	}
-    	return 0;
+5. **Add the following content to `MinaApp`**:
+```C
+#include <unistd.h> 
+#include <stdio.h>
+int main() {
+    while (1) 
+	{
+    	printf("Hello Mina APP service\n");
+    	sleep(5);  
 	}
-    ```
+
+	return 0;
+}
+```
+* *Build the APP*
+```sh
+gcc main.c -o MinaApp
+```
+
 
 6. **Make the script executable**:
     ```sh
-    chmod +x /home/mina/app/a.out
+    chmod +x /home/mina/app/MinaApp
     ```
 
 7. **Reload systemd to recognize the new service**:
@@ -150,7 +155,7 @@ Let's create another service called `hello.service` and manage dependencies.
     Before=hello.service
 
     [Service]
-    ExecStart=/home/mina/app/a.out
+    ExecStart=/home/mina/app/MinaApp
     Type=simple
 
     [Install]
