@@ -80,7 +80,7 @@ You have successfully connected to the Vexpress board running on QEMU with Build
 
 ### Notes
 
-Ensure that the necessary networking configurations are correctly set up in the QEMU command and the networking script (`/home/eng-tera/sdCard/tftp_bash`).
+Ensure that the necessary networking configurations are correctly set up in the QEMU command and the networking script.
 
 ### `tftp_bash` Script
 
