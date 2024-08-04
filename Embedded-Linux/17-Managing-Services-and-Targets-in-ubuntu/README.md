@@ -70,9 +70,18 @@ Let's create a custom service called `myservice`.
     ```
 
 5. **Add the following content to `a.out`**:
-    ```bash
-    #!/bin/bash
-    echo Hello
+    ```C
+	#include <unistd.h> 
+	#include <stdio.h>
+
+	int main() {
+    	while (1) 
+    	{
+        	printf("Hello Mina APP service\n");
+        	sleep(5);  
+    	}
+    	return 0;
+	}
     ```
 
 6. **Make the script executable**:
