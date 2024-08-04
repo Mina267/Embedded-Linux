@@ -211,19 +211,19 @@ In this guide, we covered:
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/b295b211-c5aa-49f0-bfd3-590a37e99df9" width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/b295b211-c5aa-49f0-bfd3-590a37e99df9" width=85% height=85% />
 </p>
 
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/98f663d1-c7dd-423c-bf1e-cf5ff5bf49b2" width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/0ca7e324-7b90-4f9f-84c4-42e749cb65e2" width=85% height=85% />
 </p>
-
-
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/88449d4e-9c08-40ff-8f99-55deb2af17fc" width=75% height=75% />
+	<img src="https://github.com/user-attachments/assets/98f663d1-c7dd-423c-bf1e-cf5ff5bf49b2" width=85% height=85% />
 </p>
+
+
 
