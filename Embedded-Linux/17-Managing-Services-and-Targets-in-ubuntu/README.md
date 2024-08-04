@@ -49,7 +49,7 @@ Let's create a custom service called `myservice`.
     ```ini
     [Unit]
     Description=This is my service
-    Before=tftpd-hpa.service
+    After=tftpd-hpa.service
 
     [Service]
     ExecStart=/home/mina/app/MinaApp
@@ -152,7 +152,7 @@ Let's create another service called `hello.service` and manage dependencies.
     ```ini
     [Unit]
     Description=This is my service
-    Before=hello.service
+    Wants=hello.service
 
     [Service]
     ExecStart=/home/mina/app/MinaApp
