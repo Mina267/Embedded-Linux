@@ -64,6 +64,8 @@ Let's create a custom service called `myservice`.
 
 4. **Create the executable script**:
     ```sh
+    mkdir /home/mina/app/
+    touch /home/mina/app/a.out
     vim /home/mina/app/a.out
     ```
 
