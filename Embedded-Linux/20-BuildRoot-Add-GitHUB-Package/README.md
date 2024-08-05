@@ -13,7 +13,10 @@
    #include <stdio.h>
 
    int main() {
-       printf("Hello Mina GitHub Package\n");
+       printf("\n*****************************\n");
+       printf("* Hello Mina GitHub Package *");
+       printf("\n*****************************\n");
+
        return 0;
    }
    ```
@@ -24,20 +27,27 @@
    SRC = MinaGithub_package.c
 
    $(TARGET): $(SRC)
-       $(CC) -o $@ $(SRC)
+   	$(CC) -o $@ $(SRC)
 
    clean:
-       -rm -f $(TARGET)
+   	-rm -f $(TARGET)
+   ```
+
+**Create the Tarball:**
+   
+   First, ensure that your `MinaGithub_package.c` and `Makefile` are in the same directory, then create a tarball.
+
+   ```sh
+   tar -czvf MinaGithub_package-v1.tar.gz MinaGithub_package.c Makefile
    ```
 
 2. **Push to GitHub**
 
    Initialize a new Git repository (if not already done), commit your files, and push them to GitHub:
    ```sh
-   git init
+   git clone  https://github.com/Mina267/Package.git 
    git add .
    git commit -m "Initial commit of Mina Package"
-   git remote add origin https://github.com/Mina267/Package.git
    git push -u origin master
    ```
 
@@ -132,6 +142,7 @@ Add the following content:
 **MinaGithub_package.mk:**
 ```makefile
 MINAGITHUB_PACKAGE_VERSION = b2d1cceed5c33274935436b4644fc92763a6636f
+# MINAGITHUB_PACKAGE_VERSION = v1.0.0 
 MINAGITHUB_PACKAGE_SITE = $(call github,Mina267,Package,$(MINAGITHUB_PACKAGE_VERSION))
 MINAGITHUB_PACKAGE_LICENSE = GPL-2.0+
 MINAGITHUB_PACKAGE_LICENSE_FILES = LICENSE
@@ -228,3 +239,39 @@ endmenu
 8. **Build the Buildroot image.**
 
 By following these steps, your `MinaGithub_package` will be integrated into the Buildroot system and included in the final filesystem image.
+
+
+
+
+<br>
+
+---
+
+<br>
+
+
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/ea5a68d7-c8ce-4d5d-be21-061bdf7b2b33" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/8baa1538-b33b-45ac-bffe-102260ac707e" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/2622c49e-c775-4937-841b-40ebeca26b0c" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/be16bb54-39c6-4365-9e4c-cb7ec0c7a3ed" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/40d2f83c-162a-4b2f-a829-150b869c72ba" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/2bac3e25-89f4-4194-a3c0-70c80f6f6094" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/1b5428f9-6c33-455d-9ea2-97997abe835a" width=85% height=85% />
+</p>
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/c18430ba-e5c3-491e-b45b-73dc1eb59fa1" width=85% height=85% />
+</p>
