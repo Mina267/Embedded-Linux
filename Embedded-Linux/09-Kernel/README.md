@@ -68,7 +68,7 @@ make menuconfig
 
 1. Select `General Setup`.
 2. Select `Local Version - Append to Kernel Release`.
-3. Enter your name and version (e.g., `AnasKernel-v1.0`) and save.
+3. Enter your name and version (e.g., `Mina_Kernel.v1`) and save.
 
 ### Build the Kernel Configuration
 
@@ -101,6 +101,5 @@ sudo apt-get install libmpc-dev
 make kernelrelease
 ```
 
-You should see something like `6.7.0-AnasKernel-V1.0+`, where `6.7.0` is the main kernel version, `AnasKernel-V1.0` is your custom version, and `+` indicates additional changes.
 
 By following these steps, you will successfully configure, build, and customize the Linux kernel for the Vexpress A9 using Qemu. The instructions include handling common errors and ensuring the necessary packages are installed for a smooth build process.
