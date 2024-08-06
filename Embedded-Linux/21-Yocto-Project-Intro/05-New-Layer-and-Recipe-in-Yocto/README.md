@@ -56,15 +56,27 @@ Edit `layer.conf` in the `conf` directory to define your layer's metadata and pa
 ```bash
 # meta-iti/conf/layer.conf
 
-LCONF_VERSION = "7"
-
+# This file Give Full description of the layer.
+# We have a conf and classes directory, add to BBPATH
 BBPATH .= ":${LAYERDIR}"
 
-BBFILES += "${LAYERDIR}/recipes-*/*/*.bb"
+# Explain how to find your recipes inside your layer.
+# We have recipes-* directories, add to BBFILES
+BBFILES += "${LAYERDIR}/recipes-*/*/*.bb \
+            ${LAYERDIR}/recipes-*/*/*.bbappend"
 
-BBFILE_COLLECTIONS += "iti"
-BBFILE_PATTERN_iti := "^${LAYERDIR}/"
-BBFILE_PRIORITY_iti = "6"
+# Add a different path for recipes to change the default hierarchy.
+BBFILES:append = " ${LAYERDIR}/mina-*/*.bb"
+
+BBFILE_COLLECTIONS += "meta-iti"
+BBFILE_PATTERN_meta-iti = "^${LAYERDIR}/"
+BBFILE_PRIORITY_meta-iti = "6"
+
+# The layers that the current layer depends on.
+LAYERDEPENDS_meta-iti = "core"
+# Version of Yocto Poky that layer is compatible with.
+LAYERSERIES_COMPAT_meta-iti = "kirkstone"
+
 ```
 
 ---
@@ -109,7 +121,7 @@ To ensure BitBake recognizes your new layer, you need to add the layer path to `
 Use the `bitbake-layers add-layer` command to add your layer:
 ```bash
 cd /path/to/your/poky/build
-bitbake-layers add-layer ../meta-iti
+bitbake-layers add-layer ../../meta-iti
 ```
 This will modify `conf/bblayers.conf` to include your new layer.
 
@@ -119,7 +131,7 @@ If your new layer depends on another layer, such as `meta`, ensure this dependen
 # meta-iti/conf/layer.conf
 
 LAYERDEPENDS_iti = "core"
-LAYERSERIES_COMPAT_iti = "hardknott"
+LAYERSERIES_COMPAT_iti = "kirkstone"
 ```
 
 ---
@@ -170,7 +182,7 @@ Here’s a complete workflow example for creating a new layer and recipe:
 5. **Add Layer to Build Configuration:**
     ```bash
     cd /path/to/your/poky/build
-    bitbake-layers add-layer ../meta-iti
+    bitbake-layers add-layer ../../meta-iti
     ```
 
 6. **Build the Recipe:**

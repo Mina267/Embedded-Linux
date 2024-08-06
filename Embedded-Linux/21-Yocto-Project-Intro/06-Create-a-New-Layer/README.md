@@ -18,7 +18,7 @@ First, we need to create a new layer for our customizations.
 3. **Add the Layer to `bblayers.conf`:**
 
     ```bash
-    bitbake-layers add-layer ../meta-iti
+    bitbake-layers add-layer ../../meta-iti
     ```
 
     Verify the layer is added:
@@ -78,6 +78,7 @@ We will append to an existing recipe with a `.bbappend` file in our new layer. F
 Ensure the layer is included in your `conf/bblayers.conf`:
 
 ```bash
+bitbake-layers show-layers
 BBLAYERS += "${BSPDIR}/meta-iti"
 ```
 
@@ -102,9 +103,9 @@ After the build process completes, verify that the output includes the modified 
     ```
 
 2. **Add the layer to `bblayers.conf`:**
-
+* it's mandatory when you add a new layer to be in `/poky/build_enviroment` folder
     ```bash
-    bitbake-layers add-layer ../meta-iti
+    bitbake-layers add-layer ../../meta-iti/
     ```
 
 3. **Add custom variable to `conf/local.conf`:**
@@ -119,9 +120,9 @@ After the build process completes, verify that the output includes the modified 
     python () {
         value_var = d.getVar('MY_CUSTOM_VAR')
         if value_var == "0":
-            d.appendVar('do_banner_display', '\necho "hello"')
+            d.appendVar('do_banner_display', '\necho "Mina"')
         elif value_var == "1":
-            d.appendVar('do_banner_display', '\necho "friend my hi"')
+            d.appendVar('do_banner_display', '\necho "Hello world"')
     }
     ```
 
@@ -130,4 +131,3 @@ After the build process completes, verify that the output includes the modified 
     ```bash
     bitbake example
     ```
-
