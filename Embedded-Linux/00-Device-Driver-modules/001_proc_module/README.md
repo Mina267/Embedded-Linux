@@ -275,3 +275,13 @@ The Linux kernel defines several log levels to categorize messages. These log le
 
 ## Returning the Count
 The line return count; signifies that the function successfully wrote count bytes to the file. Returning the number of bytes written is a standard practice in file operations, as it informs the calling process (usually a user-space application) that the operation was successful and specifies how many bytes were processed.
+
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/fd51289c-76f5-407b-b218-4579b9be8247
+" width=85% height=85% />
+</p>
+
+<p align="center">
+	<img src="https://github.com/user-attachments/assets/dad30557-2789-4b05-a8b6-6a66bb0a8458" width=85% height=85% />
+</p>
