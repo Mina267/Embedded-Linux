@@ -170,7 +170,7 @@ lsmod | grep myproc
 Or check the kernel log for messages:
 
 ```bash
-dmesg | tail
+sudo dmesg | tail
 ```
 
 You should see messages from your `myModule_init` function indicating that the proc file entry was created.
