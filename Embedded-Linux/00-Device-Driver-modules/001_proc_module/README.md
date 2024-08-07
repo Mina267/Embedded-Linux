@@ -222,7 +222,7 @@ lsmod | grep myproc
 Check the kernel log to ensure that the `myModule_deinit` function executed and the proc file was removed:
 
 ```bash
-dmesg | tail
+sudo dmesg | tail
 ```
 
 ### Troubleshooting
