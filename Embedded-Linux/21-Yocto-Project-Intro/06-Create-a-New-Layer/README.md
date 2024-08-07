@@ -65,9 +65,9 @@ We will append to an existing recipe with a `.bbappend` file in our new layer. F
     python () {
         value_var = d.getVar('MY_CUSTOM_VAR')
         if value_var == "0":
-            d.appendVar('do_banner_display', '\necho "hello"')
+            d.appendVar('do_banner_display', '\necho "Mina"')
         elif value_var == "1":
-            d.appendVar('do_banner_display', '\necho "friend my hi"')
+            d.appendVar('do_banner_display', '\necho "Hello world"')
     }
     ```
 
