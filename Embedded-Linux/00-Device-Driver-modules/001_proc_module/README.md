@@ -278,8 +278,7 @@ The line return count; signifies that the function successfully wrote count byte
 
 
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/fd51289c-76f5-407b-b218-4579b9be8247
-" width=85% height=85% />
+	<img src="https://github.com/user-attachments/assets/fd51289c-76f5-407b-b218-4579b9be8247" width=85% height=85% />
 </p>
 
 <p align="center">
