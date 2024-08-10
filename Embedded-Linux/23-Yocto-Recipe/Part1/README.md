@@ -6,7 +6,7 @@
 - **Understanding BitBake and Its Role in Yocto**
   - BitBake is the build engine used by Yocto to interpret and execute recipe instructions. It processes these recipes to generate output in the form of packages ready for deployment on the target system.
   - BitBake also manages the dependency chain, ensuring that all required components are built in the correct order. This build engine is responsible for expanding variables, managing tasks, and handling configurations.
-
+---
 ### **2. Key Local Variables in Yocto Recipes**
 ```bash
 DESCRIPTION = ""
@@ -71,7 +71,7 @@ SRC_URI = ""
   - **SUMMARY**
     - A brief summary of the package’s functionality.
     - Example: `SUMMARY = "File management utility"`
-
+---
 ### **3. Fetching Source Files with SRC_URI**
 
 - **Understanding SRC_URI**
@@ -91,7 +91,7 @@ SRC_URI = ""
 - **SRCREV**: This variable is essential when fetching from a Git repository to specify a particular commit.
   - Example: `SRCREV = "b6910bec11614980a21e46fbccc35934b671bd81"`
 
-
+---
 ### **4. Common Hidden Local Variables**
 
 - **PV (Package Version)**
@@ -105,12 +105,12 @@ SRC_URI = ""
 - **PN (Package Name)**
   - Specifies the name of the package.
   - Example: `PN = "example-package"`
-
+---
 ### **5. Naming Conventions for Recipes**
 
 - The correct naming of recipe files is fundamental to the organization and management of your Yocto project. The standard naming convention is `PN_PV_PR.bb`.
   - **Example**: `example-package_1.0.0_r0.bb`
-
+---
 ### **6. Directories in Yocto Recipes**
 
 - **S (Source Directory)**
@@ -124,7 +124,7 @@ SRC_URI = ""
 - **D (Destination Directory)**
   - The `D` variable is used to define where the final built files are staged before packaging.
   - Example: `D = "${WORKDIR}/install"`
-
+---
 ### **7. Inspecting Variables in Yocto Recipes**
 
 - **Using `bitbake -e` Command**
@@ -166,7 +166,7 @@ SRC_URI = ""
     ```bash
     bitbake -e <recipe_name> | grep ^D=
     ```
-
+---
 ### **8. Global Variables in Yocto**
 
 - **COREBASE**
@@ -181,7 +181,7 @@ SRC_URI = ""
 
 - **EXTENDPE**
   - Manages versioning through the epoch, which is typically blank unless `PE` is set, an important consideration in recipe management.
-
+---
 ### **9. BitBake Workflow**
 
 - **Input**: BitBake takes a `.bb` file as its primary input. This file, known as a recipe, contains metadata and instructions on how to fetch, configure, compile, and package software for a target system.
@@ -197,7 +197,7 @@ SRC_URI = ""
 
   
 
-
+---
 ### **10.  process of downloading and unpacking sources**
 
 
@@ -221,7 +221,7 @@ SRC_URI = ""
    ```
 
    In this case, `source.tar.gz` will be unpacked into the `S` directory specified by `WORKDIR` plus `source`.
-
+---
 ### Example Recipe
 
 Here’s a simplified example of a Yocto recipe to illustrate the process:
@@ -256,7 +256,7 @@ do_install() {
     # Installation steps here
 }
 ```
-
+---
 ### Summary
 
 - **`do_fetch()`**: Downloads the source files to `DL_DIR`.
