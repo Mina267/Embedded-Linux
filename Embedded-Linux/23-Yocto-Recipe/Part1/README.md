@@ -8,7 +8,16 @@
   - BitBake also manages the dependency chain, ensuring that all required components are built in the correct order. This build engine is responsible for expanding variables, managing tasks, and handling configurations.
 
 ### **2. Key Local Variables in Yocto Recipes**
+```bash
+DESCRIPTION = ""
+HOMEPAGE = ""
+LICENSE = ""
+SECTION = ""
+DEPENDS = ""
+LIC_FILES_CHKSUM = ""
 
+SRC_URI = ""
+```
 - **Mandatory Variables**
   - **LICENSE**
     - Specifies the software license under which the package is distributed.
