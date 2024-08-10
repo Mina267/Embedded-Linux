@@ -8,11 +8,11 @@ First, we need to create a new layer for our customizations.
     ```bash
     source oe-init-build-env
     ```
-
+* your current path is ~/yocto/poky/build
 2. **Create the Layer:**
 
     ```bash
-    bitbake-layers create-layer meta-iti
+    bitbake-layers create-layer ../../meta-iti
     ```
 
 3. **Add the Layer to `bblayers.conf`:**
