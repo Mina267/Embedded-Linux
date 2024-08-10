@@ -41,8 +41,8 @@ Once the code is compiled, you need to install the executable to the appropriate
 
 ```bash
 do_install() {
-    mkdir -p ${D}/usr/bin
-    cp ${B}/myapp ${D}/usr/bin/
+    mkdir -p ${D}${bindir}
+    cp ${B}/myapp ${D}${bindir}
 }
 ```
 
