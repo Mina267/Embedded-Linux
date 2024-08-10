@@ -8,22 +8,12 @@ First, we need to create a new layer for our customizations.
     ```bash
     source oe-init-build-env
     ```
-
+* your curent path should be `~/yocto/poky/build`
 2. **Create the Layer:**
 
-
-
-    **2.1 Create Your Directory:**
-    Create a new directory outside of Poky for your layer. For example:
-    ```bash
-    mkdir ../meta-iti
-    ```
-    This directory will contain your custom layer.
-
-    **2.2 Using BitBake to Create Layer:**
+    * Using BitBake to Create Layer:
     Instead of manually creating all the necessary files and directories, use BitBake's `bitbake-layers` command to generate the layer structure:
     ```bash
-    cd /path/to/your/poky
     bitbake-layers create-layer ../../meta-iti
     ```
     This command will create the basic template for your layer, which includes `conf`, `classes`, `recipes`, and other necessary directories.
