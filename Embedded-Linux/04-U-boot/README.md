@@ -125,7 +125,7 @@ Set a delay for automatic booting.
 Set the `bootcmd` value to display a custom message during boot.
 
 1. Navigate to **Boot options**.
-2. Write your preferred message (e.g., "from Anas to world, helloooooo").
+2. Write your preferred commands
 
 ## 7. Build U-Boot
 
