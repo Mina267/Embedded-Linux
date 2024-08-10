@@ -11,14 +11,33 @@ First, we need to create a new layer for our customizations.
 
 2. **Create the Layer:**
 
+
+
+    **2.1 Create Your Directory:**
+    Create a new directory outside of Poky for your layer. For example:
     ```bash
-    bitbake-layers create-layer meta-iti
+    mkdir ../meta-iti
     ```
+    This directory will contain your custom layer.
+
+    **2.2 Using BitBake to Create Layer:**
+    Instead of manually creating all the necessary files and directories, use BitBake's `bitbake-layers` command to generate the layer structure:
+    ```bash
+    cd /path/to/your/poky
+    bitbake-layers create-layer ../../meta-iti
+    ```
+    This command will create the basic template for your layer, which includes `conf`, `classes`, `recipes`, and other necessary directories.
+
+    ---
 
 3. **Add the Layer to `bblayers.conf`:**
 
     ```bash
     bitbake-layers add-layer ../../meta-iti
+    ```
+    or
+    ```bash
+    BBLAYERS += "${BSPDIR}/meta-iti"
     ```
 
     Verify the layer is added:
@@ -65,7 +84,7 @@ LAYERSERIES_COMPAT_meta-iti = "kirkstone"
 ```
 
 
-## 3. Write a `.bbappend` File
+## 3. Write a `.bb` File
 
 We will append to an existing recipe with a `.bbappend` file in our new layer. For this example, let's assume we are appending to a recipe called `example`.
 
@@ -78,7 +97,7 @@ We will append to an existing recipe with a `.bbappend` file in our new layer. F
 3. **Edit the `touch mina_1.0.bb` file:**
 
     ```bash
-    vim mina_1.0.bbappend
+    vim mina_1.0.bb
     ```
 
     Add the following content:
@@ -107,17 +126,7 @@ We will append to an existing recipe with a `.bbappend` file in our new layer. F
 
     ```
 
-
-## 4. Include the Layer in `bblayers.conf`
-
-Ensure the layer is included in your `conf/bblayers.conf`:
-
-```bash
-bitbake-layers show-layers
-BBLAYERS += "${BSPDIR}/meta-iti"
-```
-
-## 5. Build the mina recipe
+## 6. Build the mina recipe
 
 Navigate to the build directory and run the build:
 
