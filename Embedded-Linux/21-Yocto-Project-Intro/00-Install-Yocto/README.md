@@ -55,7 +55,7 @@
    vim local.conf
    ```
 
-   - Change `MACHINE` variable to `beaglebone-yocto` to target the BeagleBone platform.
+   - Change `MACHINE` variable to `Target you desire`.
 
 ## 6. **Build the Yocto Project**
    Start the build process:
