@@ -76,7 +76,6 @@ LAYERSERIES_COMPAT_meta-iti = "kirkstone"
 
 ## 3. Write a `.bb` File
 
-We will append to an existing recipe with a `.bbappend` file in our new layer. For this example, let's assume we are appending to a recipe called `example`.
 
 1. **Navigate to the layer directory:**
 
