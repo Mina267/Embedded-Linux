@@ -27,7 +27,7 @@ This directory will contain your custom layer.
 Instead of manually creating all the necessary files and directories, use BitBake's `bitbake-layers` command to generate the layer structure:
 ```bash
 cd /path/to/your/poky
-bitbake-layers create-layer ../meta-iti
+bitbake-layers create-layer ../../meta-iti
 ```
 This command will create the basic template for your layer, which includes `conf`, `classes`, `recipes`, and other necessary directories.
 

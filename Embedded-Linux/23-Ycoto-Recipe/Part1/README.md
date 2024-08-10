@@ -20,6 +20,28 @@
     - Example: `LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"`
     - This is required unless the `LICENSE` is set to `CLOSED`.
 
+>  ---
+>
+>    **How to Generate the Checksum**:
+>  - Use the `md5sum` command on the license file:
+>    ```bash
+>    md5sum <license_file>
+>    ```
+>    Example:
+>    ```bash
+>    md5sum ~/yocto/poky/meta/files/common-licenses/MIT
+>    ```
+>    Output:
+>    ```bash
+>    0835ade698e0bcf8506ecda2f7b4f302  MIT
+>    ```
+>
+>	**Example**:
+>	```bash
+>	LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+>    ```
+> ---
+
 - **Optional Variables**
   - **DESCRIPTION**
     - Provides a detailed description of what the package does.
@@ -60,33 +82,6 @@
 - **SRCREV**: This variable is essential when fetching from a Git repository to specify a particular commit.
   - Example: `SRCREV = "b6910bec11614980a21e46fbccc35934b671bd81"`
 
-
-
-  **How to Generate the Checksum**:
-  - Use the `md5sum` command on the license file:
-    ```bash
-    md5sum <license_file>
-    ```
-    Example:
-    ```bash
-    md5sum ~/yocto/poky/meta/files/common-licenses/MIT
-    ```
-    Output:
-    ```bash
-    0835ade698e0bcf8506ecda2f7b4f302  MIT
-    ```
-
-	**Example**:
-	```bash
-	LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-    ```
-
-
-- **Using Checksum for Downloaded Files**
-  - The integrity of downloaded files is ensured through the use of SHA256 checksums, which must not be overlooked.
-    ```bash
-    SRC_URI[sha256sum] = "c8a61c9acf76fa7eb4239e89f640dee3e87098d9f69b4d3518c9c60fc6d20c55"
-    ```
 
 ### **4. Common Hidden Local Variables**
 
