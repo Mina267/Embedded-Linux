@@ -1,5 +1,5 @@
 
-## Writing Custom `do_compile()` and `do_install()` Functions in Bitbake
+# Writing Custom `do_compile()` and `do_install()` Functions in Bitbake
 
 When working with Yocto and Bitbake, you may need to write custom functions to handle the compilation and installation of your application. Below is a guide on how to do this and some common issues you might encounter.
 
