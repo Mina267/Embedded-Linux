@@ -1,5 +1,4 @@
-
-## Understanding Yocto Build Directory Structure and Functions
+# Understanding Yocto Build Directory Structure and Functions
 
 When working with Yocto, certain functions like `do_compile`, `do_install`, and `do_configure` are critical to the build process. If you do not override these functions in your Bitbake recipe, Yocto will use weak default implementations. These default functions might not perform the specific actions required for your application, leading to incomplete or empty build outputs.
 
