@@ -98,6 +98,9 @@ do_install() {
    # Appends the service file to the recipe
    SRC_URI:append = " file://myservice.service"
 
+   INHERIT = systemd
+   SYSTEMD_AUTO_ENABLE = "enable"
+
    # Appends additional installation steps to the do_install task
    do_install:append() {
        # Creates the directory for systemd services
