@@ -202,10 +202,10 @@ After the build is complete, flash the generated image onto an SD card and deplo
   meta-mina/
   ├── conf
   │   ├── layer.conf
-  │   └── machine
-  │       └── rpi.conf 
-  ├── distro
-  │   └── Mina.conf   
+  │   ├── machine
+  │   │   └── rpi.conf 
+  |   └── distro
+  │       └── Mina.conf   
   ├── COPYING.MIT
   ├── README
   ├── recipes-demo
@@ -230,7 +230,6 @@ After the build is complete, flash the generated image onto an SD card and deplo
           │   └── Makefile
           └── hello-mod_0.1.bb
   ```
-
 ### Step 8: Final Build
 
 - **Build your image** with the following command:

@@ -4,6 +4,9 @@
 - **Key Variables**:
   - `SRC_URI`: Specifies the locations (URLs or local paths) from where the source files are fetched.
   - `DL_DIR`: Directory where downloaded sources are stored. Defaults to `downloads/` in the build directory.
+  - `FILESPATH`: The default set of directories the OpenEmbedded build system uses when searching for patches and files.
+  - `FILESEXTRAPATHS`: Extends the search path the OpenEmbedded build system uses when looking for files and patches as it processes recipes and append files.
+  - To add paths for `SRC_URI` do not append to  FILESPATH append to FILESEXTRAPATHS
 
 ### 2. `do_unpack()`
 - **Purpose**: Unpacks the fetched source code into the working directory.
