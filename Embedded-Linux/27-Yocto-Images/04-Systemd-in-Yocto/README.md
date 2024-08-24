@@ -7,7 +7,7 @@ Yocto, by default, uses the **SysVinit** system for initialization. However, you
 
 1. **Edit `distro.conf` to Enable `systemd`:**
    - The distribution features are defined in the `distro.conf` file of your layer. To enable `systemd`, you need to append the required features and make sure the system defaults to `systemd` instead of SysVinit.
-   #### You can get refernce from 
+   #### You can get reference from 
     ```
     code /home/mina/yocto/poky/meta/conf/distro/include/init-manager-systemd.inc 
     ```
