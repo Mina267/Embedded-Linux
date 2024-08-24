@@ -8,14 +8,19 @@ git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi.git
 ```
 
 ## 2. Create Your Own Layer
+### A. Initialize the Build Environment
+```bash
+source oe-init-build-env rpibuild
+```
+Your current path should be `~/yocto/poky/rpibuild`.
 
-### A. Using BitBake to Create a Layer
+### B. Using BitBake to Create a Layer
 
 BitBake can automate the creation of a new layer:
 
 ```bash
 cd ~/yocto
-bitbake-layers create-layer meta-mina
+bitbake-layers create-layer ../../meta-mina
 ```
 
 This command creates the basic structure of your layer, including `conf`, `classes`, `recipes`, and other necessary directories.
@@ -118,14 +123,9 @@ To create an image recipe that includes systemd and the necessary packages, foll
 
 ## 5. Source the Build Environment
 
-### A. Initialize the Build Environment
-```bash
-source oe-init-build-env rpi
-```
-Your current path should be `~/yocto/poky/rpi`.
 
-### B. Add Required Layers
-
+### A. Add Required Layers
+Your current path should be ~/yocto/poky/rpibuild.
 1. **Add the `meta-raspberrypi` Layer:**
    ```bash
    bitbake-layers add-layer ../../meta-raspberrypi
@@ -151,7 +151,7 @@ Your current path should be `~/yocto/poky/rpi`.
    bitbake-layers show-layers
    ```
 
-### C. Edit `local.conf`
+### B. Edit `local.conf`
 
 ```bash
 code ~/yocto/poky/build/conf/local.conf
