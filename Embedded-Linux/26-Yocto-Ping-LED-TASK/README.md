@@ -8,14 +8,18 @@ git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi.git
 ```
 
 ## 2. Create Your Own Layer
+### A. Initialize the Build Environment
+```bash
+source oe-init-build-env rpibuild
+```
+Your current path should be `~/yocto/poky/rpibuild`.
 
-### A. Using BitBake to Create a Layer
+### B. Using BitBake to Create a Layer
 
 BitBake can automate the creation of a new layer:
 
 ```bash
-cd ~/yocto
-bitbake-layers create-layer meta-mina
+bitbake-layers create-layer ../../meta-mina
 ```
 
 This command creates the basic structure of your layer, including `conf`, `classes`, `recipes`, and other necessary directories.
@@ -118,14 +122,9 @@ To create an image recipe that includes systemd and the necessary packages, foll
 
 ## 5. Source the Build Environment
 
-### A. Initialize the Build Environment
-```bash
-source oe-init-build-env rpi
-```
-Your current path should be `~/yocto/poky/rpi`.
 
-### B. Add Required Layers
-
+### A. Add Required Layers
+Your current path should be ~/yocto/poky/rpibuild.
 1. **Add the `meta-raspberrypi` Layer:**
    ```bash
    bitbake-layers add-layer ../../meta-raspberrypi
@@ -151,7 +150,7 @@ Your current path should be `~/yocto/poky/rpi`.
    bitbake-layers show-layers
    ```
 
-### C. Edit `local.conf`
+### B. Edit `local.conf`
 
 ```bash
 code ~/yocto/poky/build/conf/local.conf
@@ -191,26 +190,21 @@ This command builds your custom image for the specified target machine. The `-k`
   │       └── Mina.conf   
   ├── COPYING.MIT
   ├── README
-  ├── recipes-demo
-  │   └── demo
-  │       └── demo_0.1.bb
-  ├── classes/
-  ├── recipes-myrecipe/
-  │   └── myrecipe/
-  │       └── myrecipe_1.0.bb
-  │       └── myrecipe_%.bbappend
-  │       └── files/
-  │           └── main.c
-  │           └── myservice.service
   ├── recipes-image/
   │   └── image
   │       └── myimage.bb
-  └── recipes-kernel/
-      └── hello-mod
-          ├── files
-          │   ├── COPYING
-          │   ├── hello.c
-          │   └── Makefile
-          └── hello-mod_0.1.bb
+  └── recipes-pingapp/
+      └── pingappp
+          ├── files     │ 
+          │   └── ping.sh
+          └── pingapp_1.0.bb
   ```
 
+
+## Recipe
+
+
+
+
+
+sudo dd if=/home/mina/yocto/poky/rpibuild/tmp/deploy/images/raspberrypi3-64/mina-rpi-sdimg.rootfs.rpi-sdimg  of=/dev/yourdevice bs=4M status=progress

@@ -1,4 +1,4 @@
-# Package Managers in Yocto and Their Role
+# Package Managers types in Yocto
 
 **Package managers** are tools that automate the process of installing, upgrading, configuring, and removing software packages. They also manage dependencies, ensuring that all required packages are installed together.
 
