@@ -205,6 +205,60 @@ This command builds your custom image for the specified target machine. The `-k`
 
 
 
+```
+SUMMARY = "bitbake-layers recipe"
+DESCRIPTION = "Recipe created by bitbake-layers"
+
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+
+# Script to be installed
+SRC_URI = "file://ping.sh"
+
+# Add bash as a runtime dependency
+RDEPENDS:${PN} += "bash"
+
+# The source directory, since ping.sh is in the files directory
+S = "${WORKDIR}"
+inherit systemd
+
+SYSTEMD_AUTO_ENABLE = "enable"
+
+do_install() {
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/ping.sh ${D}${bindir}/ping.sh
+}
+
+```
 
 
-sudo dd if=/home/mina/yocto/poky/rpibuild/tmp/deploy/images/raspberrypi3-64/mina-rpi-sdimg.rootfs.rpi-sdimg  of=/dev/yourdevice bs=4M status=progress
+
+### Script
+```
+#!/bin/sh
+
+# Set default values
+PIN_NUMB=${1:-27}
+IP_ADDRESS=${2:-192.168.1.9}
+
+# Check if the GPIO pin is already exported
+if [[ ! -d /sys/class/gpio/gpio${PIN_NUMB} ]]; then
+  echo "${PIN_NUMB}" > /sys/class/gpio/export
+  sleep 0.1  # sleep time
+  echo "out" > /sys/class/gpio/gpio${PIN_NUMB}/direction
+fi
+
+# Check network connectivity and set GPIO value
+if ping -c 3 "${IP_ADDRESS}" > /dev/null 2>&1; then
+  echo 0 > /sys/class/gpio/gpio${PIN_NUMB}/value
+else
+  echo 1 > /sys/class/gpio/gpio${PIN_NUMB}/value
+fi
+
+```
+
+### Copy image to SD-card
+```
+sudo dd if=/home/mina/yocto/poky/rpibuild/tmp/deploy/images/raspberrypi3-64/mina-sdimg.rootfs.rpi-sdimg  of=/dev/sdb bs=4M status=progress
+
+```
