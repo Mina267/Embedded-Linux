@@ -201,7 +201,7 @@ This command builds your custom image for the specified target machine. The `-k`
   ```
 
 
-## Recipe
+## 8. Recipe
 
 
 
@@ -233,7 +233,7 @@ do_install() {
 
 
 
-### Script
+## 9. Script
 ```
 #!/bin/sh
 
@@ -257,7 +257,7 @@ fi
 
 ```
 
-### Copy image to SD-card
+## 10. Copy image to SD-card
 ```
 sudo dd if=/home/mina/yocto/poky/rpibuild/tmp/deploy/images/raspberrypi3-64/mina-sdimg.rootfs.rpi-sdimg  of=/dev/sdb bs=4M status=progress
 

@@ -38,14 +38,6 @@ extern int driver_open(struct inode *inode, struct file *file);
 extern int driver_close(struct inode *inode, struct file *file);
 extern ssize_t driver_read(struct file *file, char __user *buf, size_t len, loff_t *off);
 extern ssize_t driver_write(struct file *file, const char __user *buf, size_t len, loff_t *off);
-
-static struct file_operations fops = {
-    .owner = THIS_MODULE,
-    .open = driver_open,
-    .release = driver_close,
-    .read = driver_read,
-    .write = driver_write,
-};
 ```
 
 ### Step 2: Implement Driver Logic
@@ -121,71 +113,99 @@ This file initializes your driver, sets up the device numbers, and registers the
 #include <linux/device.h>
 #include "file_operations.h"
 
-#define DEVICE_NAME "my_char_device"
-#define CLASS_NAME "my_char_class"
+// Define constants for the driver and device names
+#define DRIVER_NAME "my_char_device"
+#define CLASS_NAME  "my_new_char_class"
+#define DEVICE1_NAME "mydevice1"
 
-static dev_t dev_number;  // Holds the major and minor numbers
-static struct cdev my_cdev;  // Represents the char device structure
-static struct class *my_class;  // Holds the device class
+static dev_t mydevice_id;  // Holds the major and minor numbers
+static struct cdev cdev_object;  // Represents the char device structure
+static struct class *mydevice_class;  // Holds the device class
 
-static int __init my_driver_init(void) {
-    int result;
+static struct file_operations fops = {
+    .owner = THIS_MODULE,
+    .open = driver_open,
+    .release = driver_close,
+    .read = driver_read,
+    .write = driver_write,
+};
 
-    // Allocate device numbers
-    result = alloc_chrdev_region(&dev_number, 0, 1, DEVICE_NAME);
-    if (result < 0) {
-        printk(KERN_ALERT "Failed to allocate device numbers\n");
-        return result;
+
+
+/* 
+ * Initialization function: Called when the module is loaded into the kernel.
+ */
+static int __init myModule_init(void) {
+    printk("Initializing Character Device\n");
+
+    // Request allocation of a device number (major + minor)
+    if (alloc_chrdev_region(&mydevice_id, 0, 1, DRIVER_NAME) < 0) {
+        printk(KERN_ERR "Device number allocation failed\n");
+        return -1;  // Return failure
     }
 
-    // Initialize cdev structure
-    cdev_init(&my_cdev, &fops);
+    // Extract and print the major and minor numbers
+    printk("Device registered: Major %d, Minor %d\n", MAJOR(mydevice_id), MINOR(mydevice_id));
 
-    // Add the cdev to the system
-    result = cdev_add(&my_cdev, dev_number, 1);
-    if (result < 0) {
-        printk(KERN_ALERT "Failed to add cdev to the system\n");
-        unregister_chrdev_region(dev_number, 1);
-        return result;
+    // Create a device class in the /sys/class directory
+    mydevice_class = class_create(CLASS_NAME);
+    if (IS_ERR(mydevice_class)) {
+        unregister_chrdev_region(mydevice_id, 1);
+        printk(KERN_ERR "Device class creation failed\n");
+        return PTR_ERR(mydevice_class);  // Return failure
     }
 
-    // Create a device class
-    my_class = class_create(THIS_MODULE, CLASS_NAME);
-    if (IS_ERR(my_class)) {
-        printk(KERN_ALERT "Failed to create device class\n");
-        cdev_del(&my_cdev);
-        unregister_chrdev_region(dev_number, 1);
-        return PTR_ERR(my_class);
+    // Create a device and register it with sysfs, making it available in /dev/
+    if (device_create(mydevice_class, NULL, mydevice_id, NULL, DEVICE1_NAME) == NULL) {
+        class_destroy(mydevice_class);
+        unregister_chrdev_region(mydevice_id, 1);
+        printk(KERN_ERR "Device creation failed\n");
+        return -1;  // Return failure
     }
 
-    // Create the device file in /dev
-    device_create(my_class, NULL, dev_number, NULL, DEVICE_NAME);
-    printk(KERN_INFO "Device registered: %s\n", DEVICE_NAME);
-    return 0;
+    // Initialize the cdev structure and add it to the kernel
+    cdev_init(&cdev_object, &fops);
+    cdev_object.owner = THIS_MODULE;
+
+    // Add the character device to the system
+    if (cdev_add(&cdev_object, mydevice_id, 1) < 0) {
+        device_destroy(mydevice_class, mydevice_id);
+        class_destroy(mydevice_class);
+        unregister_chrdev_region(mydevice_id, 1);
+        printk(KERN_ERR "Failed to add cdev\n");
+        return -1;  // Return failure
+    }
+
+    printk("Device initialized successfully\n");
+    return 0;  // Return success
 }
 
-static void __exit my_driver_exit(void) {
-    // Remove the device
-    device_destroy(my_class, dev_number);
+/* 
+ * Cleanup function: Called when the module is removed from the kernel.
+ */
+static void __exit myModule_deinit(void) {
+    // Destroy the device created with device_create()
+    device_destroy(mydevice_class, mydevice_id);
 
-    // Destroy the class
-    class_destroy(my_class);
+    // Destroy the device class created with class_create()
+    class_destroy(mydevice_class);
 
-    // Remove the cdev from the system
-    cdev_del(&my_cdev);
+    // Remove the cdev object from the system
+    cdev_del(&cdev_object);
 
-    // Free the device numbers
-    unregister_chrdev_region(dev_number, 1);
-    printk(KERN_INFO "Device unregistered: %s\n", DEVICE_NAME);
+    // Unregister the allocated device number
+    unregister_chrdev_region(mydevice_id, 1);
+    printk("Character Device Unregistered\n");
 }
 
-module_init(my_driver_init);
-module_exit(my_driver_exit);
+// Register the initialization and cleanup functions
+module_init(myModule_init);
+module_exit(myModule_deinit);
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Mina Magdy");
-MODULE_DESCRIPTION("A simple character device driver");
-MODULE_VERSION("1.0");
+MODULE_LICENSE("GPL");  // Specify the license for the module
+MODULE_AUTHOR("Mina");  // Specify the author of the module
+MODULE_DESCRIPTION("A simple character device driver example.");  // Describe the module
+
 ```
 
 ### Step 4: Writing the Makefile
@@ -194,17 +214,14 @@ MODULE_VERSION("1.0");
 The Makefile automates the process of building the kernel module. It specifies the source files and the dependencies.
 
 ```makefile
-obj-m := my_driver.o
-my_driver-objs := main.o file_operations.o
-
-KDIR := /lib/modules/$(shell uname -r)/build
-PWD := $(shell pwd)
+obj-m += MyChar.o
+MyChar-y := main.o file_operations.o
 
 all:
-    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+	make -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
 
 clean:
-    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) clean
+	make -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) clean
 ```
 
 - **obj-m**: Specifies the name of the module to be built.
@@ -227,19 +244,19 @@ This will generate a `.ko` file, which is your kernel module.
 To load the module into the kernel, use the `insmod` command:
 
 ```bash
-sudo insmod my_driver.ko
+sudo insmod MyChar.ko
 ```
 
 You can verify the installation with the `lsmod` command:
 
 ```bash
-lsmod | grep my_driver
+lsmod | grep MyChar
 ```
 
 Check the kernel messages using `dmesg`:
 
 ```bash
-dmesg | tail
+sudo dmesg | tail
 ```
 
 ### Step 6: Testing the Device
@@ -248,7 +265,7 @@ dmesg | tail
 You can write data to the device using the `echo` command:
 
 ```bash
-echo "Hello, Kernel!" > /dev/my_char_device
+sudo echo "Hello, Kernel!" > /dev/mydevice1
 ```
 
 #### Reading from the
@@ -257,7 +274,7 @@ echo "Hello, Kernel!" > /dev/my_char_device
 To read data back, use the `cat` command:
 
 ```bash
-cat /dev/my_char_device
+cat /dev/mydevice1
 ```
 
 ### Step 7: Cleanup
@@ -266,7 +283,7 @@ cat /dev/my_char_device
 To remove the module from the kernel, use the `rmmod` command:
 
 ```bash
-sudo rmmod my_driver
+sudo rmmod MyChar
 ```
 
 #### Cleaning Up
